@@ -12,8 +12,8 @@
 
 
 ## Links
-Trello
-Link to your trello board or picture of your physical board
+(Trello) [https://trello.com/b/gTyFyNr4/codescape]
+
 
 ### Git
 The url to your repository and to your deployed project
