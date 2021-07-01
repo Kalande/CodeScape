@@ -12,7 +12,7 @@
 
 
 ## Links
-(Trello) [https://trello.com/b/gTyFyNr4/codescape]
+[Trello](https://trello.com/b/gTyFyNr4/codescape)
 
 
 ### Git
