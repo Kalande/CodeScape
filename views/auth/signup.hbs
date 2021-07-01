@@ -1,0 +1,15 @@
+<h1>Welcome back to CodeScape!</h1>
+
+<div class="signup-form-wrapper" >
+    <form class="signup-form" method="POST" action="/signup">
+        <input type="text" name="username" placeholder="Enter your username">
+        <input type="text" name="email" placeholder="Enter your email">
+        <input type="password" name="password" placeholder="Enter your password">
+        <button>Sign Up</button>
+    </form>
+</div>
+
+
+{{#if error}}
+  <p class="error">{{error}}</p>
+{{/if}}
