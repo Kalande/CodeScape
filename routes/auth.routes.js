@@ -53,7 +53,10 @@ router.post('/signup', (req,res,next) => {
         return;
     }
 
-    const passcheck = /^(?=.*[0-9])(?=.*[!@#$%&])(?=.*[A-Z])(?=.{6,12})/
+    const salt = bcrypt.genSaltSync(10)
+    const hash = bcrypt.compareSync(password, salt)
+
+    const passcheck = /^(?=.*[0-9])(?=.*[!@#$%&])(?=.*[A-Z])(?=.{6,12})$/
     if(!passcheck.test(password)){
         res.render('auth/signup', {error: `Password must have:
         - At least one Number
@@ -62,12 +65,12 @@ router.post('/signup', (req,res,next) => {
         - Must be between 6 and 12 characters`})
     }
 
-    UserModel.create({username, email, password})
+    UserModel.create({username, email, password: hash})
     .then(() => {
         res.redirect('/')
     })
     .catch((err) => {
-        next(error)
+        next(err)
     })   
 })
 
