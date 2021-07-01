@@ -18,7 +18,7 @@
 ### Git
 The url to your repository and to your deployed project
 
-Repository Link
+[Repository Link](https://github.com/Kalande/CodeScape)
 
 Deploy Link
 
