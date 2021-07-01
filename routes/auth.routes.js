@@ -54,23 +54,23 @@ router.post('/signup', (req,res,next) => {
     }
 
     const salt = bcrypt.genSaltSync(10)
-    const hash = bcrypt.compareSync(password, salt)
+    const hash = bcrypt.hashSync(password, salt)
 
-    const passcheck = /^(?=.*[0-9])(?=.*[!@#$%&])(?=.*[A-Z])(?=.{6,12})$/
+    let passcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,14}$/
     if(!passcheck.test(password)){
         res.render('auth/signup', {error: `Password must have:
         - At least one Number
-        - At least one Special character
-        - At least one Uppercase letter
-        - Must be between 6 and 12 characters`})
+        - At least one Special characters
+        - Must be between 6 and 14 characters`})
+        return;
     }
 
     UserModel.create({username, email, password: hash})
     .then(() => {
         res.redirect('/')
     })
-    .catch((err) => {
-        next(err)
+    .catch(() => {
+        res.render('auth/signup' , {error: 'Username already taken'})
     })   
 })
 
