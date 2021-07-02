@@ -4,11 +4,52 @@
 
 
 ## Models
+####Snippet model
+```
+  content: {
+    type: String,
+    required: true,
+  },
+  language: {
+    type: String,
+  },
+  owner: {
+    ref: 'User',
+    type: mongoose.Schema.Types.ObjectId
+  }
+```
 
+User model
+
+```
+  username: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  }
+```
 
 ## Routes
 
+GET /
+GET /login
+GET /signup
+POST /login
+POST /signup
+
+
+
 ## Backlog
+- Possibility to follow othe rusers and see their snippets;
+- Resources page;
 
 
 ## Links
@@ -16,13 +57,11 @@
 
 
 ### Git
-The url to your repository and to your deployed project
 
 [Repository Link](https://github.com/Kalande/CodeScape)
 
-Deploy Link
+[Deploy Link]
 
 ### Slides
-The url to your presentation slides
 
-### Slides Link
+Slides Link
