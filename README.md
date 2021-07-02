@@ -4,7 +4,7 @@
 
 
 ## Models
-####Snippet model
+#### Snippet model
 ```
   content: {
     type: String,
@@ -19,7 +19,7 @@
   }
 ```
 
-User model
+#### User model
 
 ```
   username: {
@@ -40,9 +40,13 @@ User model
 ## Routes
 
 GET /
+
 GET /login
+
 GET /signup
+
 POST /login
+
 POST /signup
 
 
