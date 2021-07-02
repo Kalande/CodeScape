@@ -11,9 +11,8 @@ const snippetSchema = new Schema({
   },
   owner: {
     ref: 'User',
-    type: mongoose.Schema.Types.ObjectId
+    type: Schema.Types.ObjectId
   }
-  
 });
 
 const Snippet = model("Snippet", snippetSchema);

@@ -11,6 +11,13 @@ h1 {
   color: 15px;
 }
 
+/* Home page */
+.create-snippet-form{
+  height: 300px;
+  width: 500px
+}
+
+/* End of home page */
 
 /* palette
 Light grey rgb(245, 245, 245)
