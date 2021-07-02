@@ -14,8 +14,13 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  posts:{
+    ref: 'Snippet',
+    type: [Schema.Types.ObjectId]
   }
 });
+
 
 const User = model("User", userSchema);
 

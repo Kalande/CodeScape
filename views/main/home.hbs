@@ -1,0 +1,29 @@
+<h1>This is your home page</h1>
+
+{{!-- <form method="POST" action="/home">
+  <div class="mb-3">
+    <label class="form-label" >Your snippet</label>
+    <input class="form-control create-snippet-form" type="text" name="content"> 
+
+
+    <textarea class="form-control create-snippet-form" name="content" cols="30" rows="10"></textarea> 
+
+
+    <button class="btn btn-primary" type="submit">Create</button>
+  </div>
+</form> --}}
+
+<form method="POST" action="/home">
+  <div class="form-group">
+    <label for="editor">Your snippet</label>
+    <pre> <code> <textarea type="text" width="300px" name="content" class="form-control" id="editor" rows="5"></textarea> </code> </pre>
+  </div>
+      <button class="btn btn-primary" type="submit">Create</button>
+</form>
+
+<ol>
+{{#each user.posts}}
+    <li>   <pre> <code> {{this.content}} </code> </pre>  </li>
+     <a href="/home/{{this._id}}/delete">DELETE</a>
+{{/each}}
+</ol> 

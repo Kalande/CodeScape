@@ -8,11 +8,9 @@ router.get('/login', (req,res, next) => {
 
 router.post('/login', (req,res, next) => {
     const {username, password} = req.body
-    console.log(username, password)
 
     UserModel.findOne({username})
         .then((user) => {
-            console.log(user)
             if(user){ 
                 const {password: hashfromDB} = user
                 let isValid = bcrypt.compareSync(password, hashfromDB)
