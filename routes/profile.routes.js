@@ -7,7 +7,6 @@ router.get('/home', (req,res, next) => {
     UserModel.findById(_id)
     .populate('posts')
     .then((user) => {
-       console.log("we pass this to hbs" , user)
         res.render('main/home', {user});
     })
     .catch(() => {
@@ -22,7 +21,6 @@ router.post('/home', (req, res, next) => {
 
         const {_id, posts} = req.session.loggedInUser
         posts.push(post._id) 
-        // console.log(posts)
         UserModel.findByIdAndUpdate(_id, {posts: posts}, {new:true})
         .then((user) => {
             req.session.loggedInUser = user
@@ -32,20 +30,23 @@ router.post('/home', (req, res, next) => {
     .catch(() => {
         console.log("Post is not created")
     })
-    
+})
+
+router.get('/home/:id/delete', (req,res,next) => {
+    let dynamicId = req.params.id;
+
+    SnippetModel.findByIdAndDelete(dynamicId)
+    .then(() => {
+        res.redirect ('/home')
+    })
+    .catch(() => {
+        next("Delete failed")
+    })
 })
 
 
-
-
-
-
-// post -> db -> id -> user -> populate the post
-
-
-
-
-
-
+router.get('/discover', (req,res,next) => {
+    res.render("main/discover")
+})
 
 module.exports = router;
