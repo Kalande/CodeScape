@@ -18,7 +18,6 @@ router.post('/home', (req, res, next) => {
     const {content} = req.body;
     SnippetModel.create({content})
     .then((post) => {
-
         const {_id, posts} = req.session.loggedInUser
         posts.push(post._id) 
         UserModel.findByIdAndUpdate(_id, {posts: posts}, {new:true})
@@ -37,13 +36,12 @@ router.get('/home/:id/delete', (req,res,next) => {
 
     SnippetModel.findByIdAndDelete(dynamicId)
     .then(() => {
-        res.redirect ('/home')
+        res.redirect('/home')
     })
     .catch(() => {
         next("Delete failed")
     })
 })
-
 
 router.get('/discover', (req,res,next) => {
     res.render("main/discover")

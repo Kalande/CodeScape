@@ -2,11 +2,11 @@
 
 {{!-- <form method="POST" action="/home">
   <div class="mb-3">
-    <label class="form-label" >Your snippet</label>
-    <input class="form-control create-snippet-form" type="text" name="content"> 
+    <label class="form-label">Your snippet</label>
+    <input class="form-control create-snippet-form" type="text" name="content">
 
 
-    <textarea class="form-control create-snippet-form" name="content" cols="30" rows="10"></textarea> 
+    <textarea class="form-control create-snippet-form" name="content" cols="30" rows="10"></textarea>
 
 
     <button class="btn btn-primary" type="submit">Create</button>
@@ -15,15 +15,23 @@
 
 <form method="POST" action="/home">
   <div class="form-group">
-    <label for="editor">Your snippet</label>
-    <pre> <code> <textarea type="text" width="300px" name="content" class="form-control" id="editor" rows="5"></textarea> </code> </pre>
+  <label for="editor">Your snippet</label>
+    <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
   </div>
-      <button class="btn btn-primary" type="submit">Create</button>
+  <button class="btn btn-primary" type="submit">Create</button>
+  
 </form>
 
 <ol>
-{{#each user.posts}}
-    <li>   <pre> <code> {{this.content}} </code> </pre>  </li>
-     <a href="/home/{{this._id}}/delete">DELETE</a>
-{{/each}}
-</ol> 
+  {{#each user.posts}}
+    <li class="line-numbers">
+      <pre> <code class="language-javascript">{{this.content}}</code> </pre>
+    </li>
+  <form action="/home/{{this._id}}/delete">
+    <button class="btn btn-primary" type="submit">DELETE</button>
+  </form>
+
+  {{/each}}
+</ol>
+
+<script src="/js/prism.js"></script>
