@@ -13,19 +13,114 @@ Orange: rgb( 203, 103, 21)
   outline: none;
   /* to remove all the outlines of buttons */
 }
+html {
+  font-size: 62.5%;
+  /* as 1 rem - 16px, to make 1 rem = 10px, we need to 10px/16px*100  */
+}
 
 body {
   background-color: rgb(245, 245, 245);
+  font-size: 1.5rem;
 }
-
 
 /* Home page */
 .create-snippet-form{
-  height: 300px;
-  width: 500px
+  height: 30rem;
+  width: 50rem
 }
 
 /* End of home page */
 /* Discover page */
+.discover-page{
+  width: 100%;
+  height: 100%
+}
+.discover-nav{
+  position: fixed;
+  width: 100%;
+  height: 6.5rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.3);
+}
+.nav-placeholder{
+  height: 6.5rem;
+}
+
+.user-info{
+  position: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 24%;
+
+}
+
+.user-image-wrapper{
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.user-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.user-info a{
+  position: relative;
+  top: -1rem;
+  left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+.logo-wrapper{
+  position: flex;
+  width: 30%;
+
+}
+.logo-wrapper p{
+  display: inline;
+  position: relative;
+  top: -1rem;
+  right: -9rem
+
+
+}
+.logo-wrapper img{
+  position: relative;
+  top: 0.8rem;
+  right: -10rem;
+}
+
+.discover-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.5fr 1.5fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.sidebar{
+  grid-column: 0/1;
+  grid-row: 1/5;
+  background-color: white;
+  height: 100rem;
+  box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
+
+}
+.main-content-discover{
+  background-color:FCF4EE;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+
+
+
+
+
+
 
 /* End of discover page */
