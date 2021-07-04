@@ -67,7 +67,14 @@ router.get('/home/:id/delete', (req, res, next) => {
 
 
 router.get('/discover', (req, res, next) => {
-    res.render("main/discover")
+    const {_id} = req.session.loggedInUser
+    UserModel.findById(_id)
+    .then((user) => {
+       res.render("main/discover", {user}) 
+    })
+    .catch((err) => {
+        next(err)
+    })
 })
 
 module.exports = router;

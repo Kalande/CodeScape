@@ -5,10 +5,10 @@
             <div class="user-image-wrapper">
                 <img src="/images/images.png"  alt="user-pic">
             </div>
-            <a href="/myprofile" class="user-link">{{username}} username </a>
+            <a href="/myprofile" class="user-link">{{user.username}}</a>
         </div>
         <div class="logo-wrapper">
-            <p>CodeScape</p>
+            <p>CODESPACE</p>
             <img src="/images/logo-dark.png" width="50px" alt="logo">
         </div>
     </nav> 
@@ -16,8 +16,8 @@
     <div class="discover-wrapper">
         <div class="sidebar">
             <div class="my-snippets">My snippets</div>
-            <div class="my-snippets selected">Discover</div>
-            <div class="my-snippets">Resources</div>
+            <div class="discover selected">Discover</div>
+            <div class="resources">Resources</div>
         </div>
    
         <div class="main-content-discover">
@@ -29,9 +29,17 @@
                     <option value="css">CSS</option>
                 </select>
             </div>
-            <div class="trending-boxes">
-                <div class="trending-box"></div>
-            </div>
+            {{!-- will place EACH loop to add nfo from API --}}
+            <div class="trending-box box-1"><p> BOX 1</p></div>
+            <div class="trending-box box-2"> <p> BOX 2</p></div>
+            <div class="trending-box box-3"> <p> BOX 3</p></div>
+            <div class="trending-box box-4"> <p> BOX 4</p></div>
+            <div class="trending-box box-5"> <p> BOX 5</p></div>
+            <div class="trending-box box-6"> <p> BOX 6</p></div>
+            <div class="trending-box box-7"> <p> BOX 7</p></div>
+            <div class="trending-box box-8"> <p> BOX 8</p></div>
+            <div class="trending-box box-9"> <p> BOX 9</p></div>
+
         </div>
  </div>
     
