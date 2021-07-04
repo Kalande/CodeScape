@@ -1,31 +1,18 @@
-<h1>This is your home page</h1>
-
-{{!-- <form method="POST" action="/home">
-  <div class="mb-3">
-    <label class="form-label">Your snippet</label>
-    <input class="form-control create-snippet-form" type="text" name="content">
-
-
-    <textarea class="form-control create-snippet-form" name="content" cols="30" rows="10"></textarea>
-
-
-    <button class="btn btn-primary" type="submit">Create</button>
-  </div>
-</form> --}}
-
-<form method="POST" action="/home">
-  <div class="form-group">
-  <label for="editor">Your snippet</label>
-    <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
-  </div>
-  <button class="btn btn-primary" type="submit">Create</button>
-  
+<h1>Welcome to your home page</h1>
+ 
+<form class="login-form" method="GET" action="/home">
+        <input type="text" name="search" placeholder="Search Here">
+        <button type="submit">Search</button>
 </form>
+ {{#if searcherr}}
+     <p class="error">{{searcherr}}</p>
+    {{/if}}
 
 <ol>
-  {{#each user.posts}}
+  {{#each posts}}
     <li class="line-numbers">
-      <pre> <code class="language-javascript">{{this.content}}</code> </pre>
+       <label for="snippet">{{this.title}}</label>
+      <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
     </li>
   <form action="/home/{{this._id}}/delete">
     <button class="btn btn-primary" type="submit">DELETE</button>
@@ -33,5 +20,34 @@
 
   {{/each}}
 </ol>
+
+
+<ol>
+  {{#each user.posts}}
+    <li class="line-numbers">
+       <label for="snippet">{{this.title}}</label>
+      <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+    </li>
+  <form action="/home/{{this._id}}/delete">
+    <button class="btn btn-primary" type="submit">DELETE</button>
+  </form>
+
+  {{/each}}
+</ol>
+
+<form method="POST" action="/home">
+  <div class="form-group">
+  <label for="editor">Your snippet</label>
+    <input type="text" name="title" placeholder="Title">
+    {{#if error}}
+     <p class="error">{{error}}</p>
+    {{/if}}
+    <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Create</button>
+  
+</form>
+
+
 
 <script src="/js/prism.js"></script>

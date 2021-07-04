@@ -12,6 +12,11 @@ const snippetSchema = new Schema({
   owner: {
     ref: 'User',
     type: Schema.Types.ObjectId
+  },
+  title: {
+    type: String,
+    required: true,
+    index: "text"
   }
 });
 
