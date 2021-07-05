@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model');
 const SnippetModel = require('../models/Snippet.model');
+const axios = require('axios');
 
 router.get('/home', (req, res, next) => {
     const {search} = req.query
@@ -74,6 +75,15 @@ router.get('/discover', (req, res, next) => {
     })
     .catch((err) => {
         next(err)
+    })
+
+
+    axios.get('https://ghapi.huchen.dev/languages')
+    .then((response) => {
+        console.log(response)
+    })
+    .catch(() => {
+        console.log("could not get api")
     })
 })
 

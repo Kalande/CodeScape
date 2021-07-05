@@ -243,4 +243,8 @@ body {
   grid-row: 2/3;
   justify-self: center;
 }
+.snippets-wrapper li{
+color: #000;
+
+}
 /*End of main page */ 

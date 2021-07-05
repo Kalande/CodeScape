@@ -47,12 +47,13 @@
           <ol>
             {{#each user.posts}}
               <li class="line-numbers">
-                <label for="snippet">{{this.title}}</label>
+              <label for="snippet">{{this.title}} </label>
                 <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
               </li>
-            <form action="/home/{{this._id}}/delete">
-              <button class="btn btn-primary" type="submit">DELETE</button>
-            </form>
+              <form action="/home/{{this._id}}/delete">
+                <button class="btn btn-primary" type="submit">DELETE</button>
+              </form>
+              <br>
 
             {{/each}}
           </ol>
