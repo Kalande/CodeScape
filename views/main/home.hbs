@@ -1,53 +1,67 @@
-<h1>Welcome to your home page</h1>
- 
-<form class="login-form" method="GET" action="/home">
-        <input type="text" name="search" placeholder="Search Here">
-        <button type="submit">Search</button>
-</form>
- {{#if searcherr}}
-     <p class="error">{{searcherr}}</p>
- {{/if}}
+<section class="home-page">
+  <nav class="discover-nav">
+    <div class="user-info">
+        <div class="user-image-wrapper">
+            <img src="/images/images.png"  alt="user-pic">
+        </div>
+        <a href="/myprofile" class="user-link">{{user.username}}</a>
+    </div>
+    <div class="snippet-search-bar">
+        <form class="login-form" method="GET" action="/home">
+          <input type="text" name="search" placeholder="Search Here">
+          <button type="submit">Search</button>
+        </form>
+        {{#if searcherr}}
+            <p class="error">{{searcherr}}</p>
+        {{/if}}
+    </div>
+    <div class="logo-wrapper">
+        <p>CODESPACE</p>
+        <img src="/images/logo-dark.png" width="50px" alt="logo">
+    </div>
+  </nav> 
+  <div class="nav-placeholder"> </div>
+  <div class="home-wrapper layout-for-sidebar">
+      <div class="sidebar">
+        <div class="my-snippets selected">My snippets</div>
+        <div class="discover ">Discover</div>
+        <div class="resources">Resources</div>
+      </div>
+        {{!-- Main content starts here --}}
+      <div class="main-content-home">
+        <div class="create-snippet-form">          
+          <form method="POST" action="/home">
+            <div class="form-group">
+            <label for="editor">Create your snippet</label>
+              <input type="text" name="title" placeholder="Title">
+              {{#if error}}
+              <p class="error">{{error}}</p>
+              {{/if}}
+              <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Create</button>
+          </form>
+        </div>
 
-<ol>
-  {{#each posts}}
-    <li class="line-numbers">
-       <label for="snippet">{{this.title}}</label>
-      <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-    </li>
-  <form action="/home/{{this._id}}/delete">
-    <button class="btn btn-primary" type="submit">DELETE</button>
-  </form>
+        <div class="snippets-wrapper">
+          <ol>
+            {{#each user.posts}}
+              <li class="line-numbers">
+                <label for="snippet">{{this.title}}</label>
+                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+              </li>
+            <form action="/home/{{this._id}}/delete">
+              <button class="btn btn-primary" type="submit">DELETE</button>
+            </form>
 
-  {{/each}}
-</ol>
+            {{/each}}
+          </ol>
+        </div>
 
-
-<ol>
-  {{#each user.posts}}
-    <li class="line-numbers">
-       <label for="snippet">{{this.title}}</label>
-      <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-    </li>
-  <form action="/home/{{this._id}}/delete">
-    <button class="btn btn-primary" type="submit">DELETE</button>
-  </form>
-
-  {{/each}}
-</ol>
-
-<form method="POST" action="/home">
-  <div class="form-group">
-  <label for="editor">Your snippet</label>
-    <input type="text" name="title" placeholder="Title">
-    {{#if error}}
-     <p class="error">{{error}}</p>
-    {{/if}}
-    <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
+    </div>   
   </div>
-  <button class="btn btn-primary" type="submit">Create</button>
-  
-</form>
 
+  <script src="/js/prism.js"></script>
 
+</section>
 
-<script src="/js/prism.js"></script>
