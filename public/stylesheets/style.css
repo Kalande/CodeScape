@@ -102,6 +102,10 @@ body {
   height: 100rem;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
 }
+.sidebar a{
+  text-decoration: none;
+  color: #000;
+}
 .sidebar div{
   font-size: 2rem;
   margin: 4rem 0rem 4rem 2rem;
@@ -120,8 +124,8 @@ body {
   row-gap: 5rem;
   column-gap: 5rem;
 }
-.language{
-  grid-column:4/5;
+.language-dropdown{
+  grid-column:2/3;
   grid-row: 1/2;
   place-self: center;
 }
