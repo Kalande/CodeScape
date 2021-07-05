@@ -30,16 +30,16 @@
         {{!-- Main content starts here --}}
       <div class="main-content-home">
         <div class="create-snippet-form">          
-          <form method="POST" action="/home">
+          <form method="POST" action="/home/{{post.id}}/edit">
             <div class="form-group">
-            <label for="editor">Create your snippet</label>
-              <input type="text" name="title" placeholder="Title">
+            <label for="editor">Edit your snippet</label>
+              <input type="text" name="title" placeholder="Title" value="{{post.title}}">
               {{#if error}}
               <p class="error">{{error}}</p>
               {{/if}}
-              <textarea type="text" name="content" class="form-control" id="editor" ></textarea>
+              <textarea type="text" name="content" class="form-control" id="editor" >{{post.content}}</textarea>
             </div>
-            <button class="btn btn-primary" type="submit">Create</button>
+            <button class="btn btn-primary" type="submit">Save</button>
           </form>
         </div>
 
@@ -48,7 +48,7 @@
             {{#each user.posts}}
               <li class="line-numbers">
                 <label for="snippet">{{this.title}}</label>
-                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+                <pre><code class="language-javascript" id="snippet">{{this.content}}</code></pre>
               </li>
             <form action="/home/{{this._id}}/delete">
               <button class="btn btn-primary" type="submit">DELETE</button>
@@ -66,6 +66,3 @@
   </div>
 
   <script src="/js/prism.js"></script>
-
-</section>
-

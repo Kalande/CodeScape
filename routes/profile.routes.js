@@ -85,7 +85,40 @@ router.get('/home/:id/delete', (req, res, next) => {
 })
 
 //Edit routes to go here
+router.get('/home/:id/edit', (req,res,next) => {
+    const {id} = req.params
+    const {_id} = req.session.loggedInUser
+    UserModel.findById(_id)
+        .populate('posts')
+        .then((user) => {
+            SnippetModel.findById(id)
+            .then((post) => {
+            res.render('main/edit-snippet', {user, post})
+            })
+            .catch((err) => {
+                next(err)
+            })
+        })
+        .catch((err) => {
+            next(err)
+        })
+})
 
+router.post('/home/:id/edit', (req, res, next) => {
+    const {id} = req.params
+    const {title, content} = req.body
+    if(!title){
+        res.render('main/edit-snippet', {error: "Title is required"})
+        return;
+    }
+    SnippetModel.findByIdAndUpdate(id, {title, content}, {new: true})
+    .then(() => {
+        res.redirect('/home')
+    })
+    .catch((err) => {
+        next(err)
+    })  
+})
 
 router.get('/discover', (req, res, next) => {
     const {_id} = req.session.loggedInUser
