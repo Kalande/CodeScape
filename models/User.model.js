@@ -19,6 +19,9 @@ const userSchema = new Schema({
   posts:{
     ref: 'Snippet',
     type: [Schema.Types.ObjectId]
+  },
+  imageUrl: {
+    type: String
   }
 });
 

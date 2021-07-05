@@ -1,0 +1,49 @@
+<nav class="discover-nav">
+  <div class="user-info">
+    <div class="user-image-wrapper">
+      <img src="{{imageUrl}}" alt="user-pic">
+    </div>
+    <a href="/myprofile" class="user-link">{{username}}</a>
+  </div>
+  <div class="snippet-search-bar">
+    <form class="search-snippet-form" method="GET" action="/find-friends">
+      <input type="text" name="user" placeholder="Search Users">
+      <button type="submit">Search</button>
+    </form>
+    <form class="search-snippet-form" action="/find-friends">
+      <button type="submit">Clear</button>
+    </form>
+  </div>
+  <div class="logo-wrapper">
+    <p>CODESPACE</p>
+    <img src="/images/logo-dark.png" width="50px" alt="logo">
+  </div>
+</nav>
+<div class="nav-placeholder"> </div>
+<div class="home-wrapper layout-for-sidebar">
+  <div class="sidebar">
+    <div class="my-snippets selected">My snippets</div>
+    <div class="discover ">Discover</div>
+    <div class="resources">Resources</div>
+  </div>
+  {{!-- Main content starts here --}}
+  <div class="main-content-home">
+    <h1>{{user.username}}</h1>
+    <div class="snippets-wrapper">
+      {{#if searcherr}}
+      <p class="error">{{searcherr}}</p>
+      {{/if}}
+      <ol>
+        {{#each user.posts}}
+        <li class="line-numbers">
+          <label for="snippet">{{this.title}}</label>
+          <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
+</div>
+
+<script src="/js/prism.js"></script>

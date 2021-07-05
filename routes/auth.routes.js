@@ -63,13 +63,19 @@ router.post('/signup', (req,res,next) => {
         return;
     }
 
-    UserModel.create({username, email, password: hash})
+    UserModel.create({username, email, password: hash, imageUrl: '/images/images.png'})
     .then(() => {
         res.redirect('/')
     })
     .catch(() => {
         res.render('auth/signup' , {error: 'Username already taken'})
     })   
+})
+
+router.get('/logout', (req,res,next) => {
+    req.session.destroy()
+    req.app.locals.isLoggedIn = false;
+    res.redirect('/')
 })
 
 

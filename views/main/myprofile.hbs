@@ -1,6 +1,11 @@
 <h1>My Profile</h1>
 
 <div class="">
+    <img src="{{user.imageUrl}}" alt="user picture">
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="imageUrl" accept="image/png, image/jpg">
+        <button type="submit">Upload</button> 
+    </form> 
     <form class="" method="POST" action="/myprofile">
         <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
         <br>
@@ -9,6 +14,7 @@
         <input type="password" name="password" placeholder="Create new password">
         <button type="submit">Submit</button>
     </form>
+    
     {{#if error}}
     <p class="error">{{error}}</p>
     {{/if}}

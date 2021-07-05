@@ -2,22 +2,18 @@
   <nav class="discover-nav">
     <div class="user-info">
         <div class="user-image-wrapper">
-            <img src="/images/images.png"  alt="user-pic">
+            <img src="{{imageUrl}}"  alt="user-pic">
         </div>
-        <a href="/myprofile" class="user-link">{{user.username}}</a>
+        <a href="/myprofile" class="user-link">{{username}}</a>
     </div>
     <div class="snippet-search-bar">
         <form class="search-snippet-form" method="GET" action="/find-friends">
-          <input type="text" name="search" placeholder="Search Users">
+          <input type="text" name="user" placeholder="Search Users">
           <button type="submit">Search</button>
         </form>
          <form class="search-snippet-form" action="/find-friends">
          <button type="submit">Clear</button>
          </form>
-        
-        {{#if searcherr}}
-            <p class="error">{{searcherr}}</p>
-        {{/if}}
     </div>
     <div class="logo-wrapper">
         <p>CODESPACE</p>
@@ -33,16 +29,19 @@
       </div>
         {{!-- Main content starts here --}}
       <div class="main-content-home">
-        <div class="snippets-wrapper">
+        <div class="snippets-wrapper">        
+        {{#if searcherr}}
+            <p class="error">{{searcherr}}</p>
+        {{/if}}
           <ol>
             {{#each users}}
                <li>
-                   {{this.username}}
+                   <a href="/profile/{{this.id}}"><h1>{{this.username}}</h1></a>
                </li>
             {{/each}}
           </ol>
         </div>
-
+      </div>
     </div>   
   </div>
 

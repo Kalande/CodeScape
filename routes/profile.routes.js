@@ -1,9 +1,11 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model');
 const SnippetModel = require('../models/Snippet.model');
+const uploader = require('../config/cloudinary.config.js');
+const loggedIn = require('../middlewares/authcheck')
 const bcrypt = require('bcryptjs')
 
-router.get('/home', (req, res, next) => {
+router.get('/home', loggedIn, (req, res, next) => {
     const {search} = req.query
 
     if (!search) {
@@ -59,6 +61,23 @@ router.post('/home', (req, res, next) => {
         .catch(() => {
             next("Post is not created")
         })
+})
+
+router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
+    const {imageUrl} = req.file.path
+    const {_id} = req.session.loggedInUser
+   if (!req.file) {
+     next(new Error('No file uploaded!'));
+     return;
+   }
+   UserModel.findByIdAndUpdate(_id, {imageUrl: imageUrl})
+   .then(() => {
+       res.redirect('/myprofile')
+   })
+   .catch(() => {
+       
+   })
+    
 })
 
 router.get('/home/:id/delete', (req, res, next) => {
@@ -120,7 +139,7 @@ router.post('/home/:id/edit', (req, res, next) => {
     })  
 })
 
-router.get('/discover', (req, res, next) => {
+router.get('/discover', loggedIn, (req, res, next) => {
     const {_id} = req.session.loggedInUser
     UserModel.findById(_id)
     .then((user) => {
@@ -131,7 +150,7 @@ router.get('/discover', (req, res, next) => {
     })
 })
 
-router.get('/myprofile', (req, res, next) => {
+router.get('/myprofile', loggedIn, (req, res, next) => {
     const {_id} = req.session.loggedInUser
     UserModel.findById(_id)
     .then((user) => {
