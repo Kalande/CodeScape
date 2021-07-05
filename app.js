@@ -54,6 +54,9 @@ app.use('/', profileRoute);
 
 const friendsRoute = require('./routes/friends.routes')
 app.use('/', friendsRoute);
+const discoverRoute = require('./routes/discover.routes')
+app.use('/', discoverRoute);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

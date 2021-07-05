@@ -139,16 +139,7 @@ router.post('/home/:id/edit', (req, res, next) => {
     })  
 })
 
-router.get('/discover', loggedIn, (req, res, next) => {
-    const {_id} = req.session.loggedInUser
-    UserModel.findById(_id)
-    .then((user) => {
-       res.render("main/discover", {user}) 
-    })
-    .catch((err) => {
-        next(err)
-    })
-})
+// My profile routes
 
 router.get('/myprofile', loggedIn, (req, res, next) => {
     const {_id} = req.session.loggedInUser

@@ -37,6 +37,7 @@ body {
 }
 .discover-nav{
   position: fixed;
+  z-index: 100;
   width: 100%;
   height: 6.5rem;
   background-color: white;
@@ -92,15 +93,20 @@ body {
 .layout-for-sidebar{
   display: grid;
   grid-template-columns: 20rem 1fr;
-  grid-template-rows: 0.5fr 2fr 2fr 2fr;
+  grid-template-rows:auto;
 
 }
 .sidebar{
   grid-column: 1/2;
-  grid-row: 1/-1;
+  grid-row: auto;
+  align-self: stretch;
   background-color: white;
   height: 100rem;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
+}
+.sidebar a{
+  text-decoration: none;
+  color: #000;
 }
 .sidebar div{
   font-size: 2rem;
@@ -112,76 +118,85 @@ body {
 
 }
 .main-content-discover{
-  grid-column: 2/5;
-  grid-row: 1/5;
+  grid-column: 2/-1;
+  grid-row: 1/-1;
   display: grid;
-  grid-template-columns: 1fr 35rem 35rem 35rem 1fr;
-  grid-template-rows: 0.5fr 2fr 2fr 2fr;
-  row-gap: 5rem;
-  column-gap: 5rem;
+  grid-template-columns: auto;
+  grid-template-rows: 7rem auto;
 }
-.language{
-  grid-column:4/5;
+.discover-boxes{
+  grid-column: auto;
+  grid-row: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
+  gap: 3rem;
+  margin: 10rem;
+}
+
+.language-dropdown{
+  grid-column:2/3;
   grid-row: 1/2;
   place-self: center;
 }
 .trending-box{
-  width: 35rem;
+  width: 36rem;
+  height: 30rem;
   background-color: white;
   border-radius: 3rem;
   box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.1);
 }
 .trending-box p{
-  margin: 5rem;
-}
-.box-1{
-  grid-column: 2/3;
-  grid-row: 2/3;
+  position: relative;
+  left: 1rem;
 }
 
-.box-2{
-  grid-column: 3/4 ;
-  grid-row: 2/3;
+.box-repo-name{
+  text-decoration: none;
+  display: block;
+  color: #CB6715;
+  font-size: 2.6rem;
+  position: relative;
+  top: 2rem;
+  left: 2rem;
 }
 
-.box-3{
-  grid-column: 4/5;
-  grid-row: 2/3;
-
-}
-.box-4{
-  grid-column: 2/3;
-  grid-row: 3/4;
+.box-lang{
+  top: 5rem;
+  padding-left: 1rem;
 
 }
 
-.box-5{
-  grid-column: 3/4 ;
-  grid-row: 3/4;
+.box-username{
+  margin: 0;
+  position: relative;
+  top: 18rem;
+  left: -5rem;
+  display: inline-block;
+  padding-left: 1rem;
+
+}
+.box-description{
+  line-height: 2rem;
+  font-size: 1.7rem;
+  left: -1rem;
+  top: 8rem;
 
 }
 
-.box-6{
-  grid-column: 4/5;
-  grid-row: 3/4;
+.box-starred{
+  top: 18rem;
+  left: 7rem;
+  margin: 0;
+  display: inline-block;
+  padding-left: 1rem;
 }
 
-.box-7{
-  grid-column: 2/3;
-  grid-row: 4/5;
-
-}
-
-.box-8{
-  grid-column: 3/4 ;
-  grid-row: 4/5;
-
-}
-
-.box-9{
-  grid-column: 4/5;
-  grid-row: 4/5;
-
+.box-forked{
+  top: 18rem;
+  left: 7rem;
+  margin: 0;
+  display: inline-block;
+  padding-left: 1rem;
 }
 /* End of discover page */
 
@@ -242,5 +257,9 @@ body {
   grid-column: 2/3;
   grid-row: 2/3;
   justify-self: center;
+}
+.snippets-wrapper li{
+color: #000;
+
 }
 /*End of main page */ 

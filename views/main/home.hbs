@@ -26,9 +26,9 @@
   <div class="nav-placeholder"> </div>
   <div class="home-wrapper layout-for-sidebar">
     <div class="sidebar">
-      <div class="my-snippets selected">My snippets</div>
-      <div class="discover ">Discover</div>
-      <div class="resources">Resources</div>
+      <div class="my-snippets selected"><a href="/home">My snippets</a></div>
+      <div class="discover "><a href="/discover">Discover</a></div>
+      <div class="resources"><a href="/resources"> Resources</a></div>
     </div>
     {{!-- Main content starts here --}}
     <div class="main-content-home">
@@ -45,45 +45,41 @@
           <button class="btn btn-primary" type="submit">Create</button>
         </form>
       </div>
+          <div class="snippets-wrapper">
+            <ol>
+              {{#each user.posts}}
+              <li class="line-numbers">
+                <label for="snippet">{{this.title}} </label>
+                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+              </li>
+              <form action="/home/{{this._id}}/delete">
+                <button class="btn btn-primary" type="submit">DELETE</button>
+              </form>
+              <br>
+              <form action="/home/{{this._id}}/edit">
+                <button class="btn btn-primary" type="submit">EDIT</button>
+              </form>
+              {{/each}}
+            </ol>
+            <ol>
+              {{#each posts}}
+              <li class="line-numbers">
+                <label for="snippet">{{this.title}}</label>
+                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+              </li>
+              <form action="/home/{{this._id}}/delete">
+                <button class="btn btn-primary" type="submit">DELETE</button>
+              </form>
 
-      <div class="snippets-wrapper">
-        <ol>
-          {{#each user.posts}}
-          <li class="line-numbers">
-            <label for="snippet">{{this.title}}</label>
-            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-          </li>
-          <form action="/home/{{this._id}}/delete">
-            <button class="btn btn-primary" type="submit">DELETE</button>
-          </form>
+              <form action="/home/{{this._id}}/edit">
+                <button class="btn btn-primary" type="submit">EDIT</button>
+              </form>
 
-          <form action="/home/{{this._id}}/edit">
-            <button class="btn btn-primary" type="submit">EDIT</button>
-          </form>
-
-          {{/each}}
-        </ol>
-        <ol>
-          {{#each posts}}
-          <li class="line-numbers">
-            <label for="snippet">{{this.title}}</label>
-            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-          </li>
-          <form action="/home/{{this._id}}/delete">
-            <button class="btn btn-primary" type="submit">DELETE</button>
-          </form>
-
-          <form action="/home/{{this._id}}/edit">
-            <button class="btn btn-primary" type="submit">EDIT</button>
-          </form>
-
-          {{/each}}
-        </ol>
-      </div>
-
+              {{/each}}
+            </ol>
+          </div>
     </div>
-  </div>
 
-  <script src="/js/prism.js"></script>
+    <script src="/js/prism.js"></script>
 
 </section>

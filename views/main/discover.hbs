@@ -15,30 +15,56 @@
     <div class="nav-placeholder"> </div>
     <div class="discover-wrapper layout-for-sidebar">
         <div class="sidebar">
-            <div class="my-snippets">My snippets</div>
-            <div class="discover selected">Discover</div>
-            <div class="resources">Resources</div>
+
+            <div class="my-snippets "><a href="/home">My snippets</a></div>
+            <div class="discover selected"><a href="/discover">Discover</a></div>
+            <div class="resources"><a href="/resources"> Resources</a></div>
         </div>
    
         <div class="main-content-discover">
-            <div class="language">Language dropdown
-                <select name="languages" class="languages">
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                </select>
+            <div class="language-div">         
+                <form  method="POST" class="language-dropdown" action="/discover">
+                    <label for="languages">Choose language</label>
+                    <select name="languages" id="languages" class="languages">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="c++">C++</option>
+                        <option value="shell">Shell</option>
+                        <option value="typescript">Typescript</option>
+                        <option value="java">Java</option>
+                        <option value="php">PHP</option>
+                        <option value="c#">C#</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="c">C</option>
+                        <option value="swift">Swift</option>
+                        <option value="r">R</option>
+                        <option value="objective-c">Objective-C</option>
+                        <option value="scala">Scala</option>
+                        <option value="go">Go</option>
+                        <option value="powershell">PowerShell</option>
+                        <option value="kotlin">Kotlin</option>
+                        <option value="rust">Rust</option>
+                        <option value="perl">Perl</option>
+                        <option value="sql">SQL</option>
+                    </select>
+                    <button class="btn submit-language" type="submit">🔎</button>
+                </form>
             </div>
             {{!-- will place EACH loop to add nfo from API --}}
-            <div class="trending-box box-1"><p> BOX 1</p></div>
-            <div class="trending-box box-2"> <p> BOX 2</p></div>
-            <div class="trending-box box-3"> <p> BOX 3</p></div>
-            <div class="trending-box box-4"> <p> BOX 4</p></div>
-            <div class="trending-box box-5"> <p> BOX 5</p></div>
-            <div class="trending-box box-6"> <p> BOX 6</p></div>
-            <div class="trending-box box-7"> <p> BOX 7</p></div>
-            <div class="trending-box box-8"> <p> BOX 8</p></div>
-            <div class="trending-box box-9"> <p> BOX 9</p></div>
+            <div class="discover-boxes">
+            {{#each response.data}}
+                <div class="trending-box"> 
+                    <a class="box-repo-name" target=”_blank” href="{{this.url}}">{{this.repositoryName}}</a>
+                    <p class="box-lang">  <i style="color:{{this.languageColor}}" class="fas fa-circle"></i>  {{this.language}}</p>
+                    <p class="box-description">{{this.description}}</p>
+                    <p class="box-starred"><i style="color:yellow" class="fas fa-star"></i>{{this.totalStars}}</p>
+                    <p class="box-forked"><i style="color:orange" class="fas fa-code-branch"></i>{{this.forks}}</p>
+                    <p class="box-username">by {{this.username}}</p>
+                </div>
+            {{/each}}
+            </div>
         </div>
     </div>
 </section>
