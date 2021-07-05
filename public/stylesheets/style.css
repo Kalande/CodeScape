@@ -186,6 +186,43 @@ body {
 /* End of discover page */
 
 /* Main page start */
+.snippet-search-bar{
+  align-self: center;
+  display: flex;
+  margin-left: 10rem;
+}
+.snippet-search-bar input{
+  width: 30rem;
+  height: 4.5rem;
+  margin-right: 1rem;
+  font-size: 1.6rem;
+  padding: 0 1rem;
+  border: 0.1rem solid #ddd;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transition: background-color 0.5s;
+}
+
+.snippet-search-bar input:focus{
+  background-color: #FCF4EE;
+  outline: none;
+}
+
+.snippet-search-bar button{
+  width: 8rem;
+  height: 4.5rem;
+  background-color: #fff;
+  color: #CB6715;
+  border: 0.1rem solid #CB6715;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.snippet-search-bar button:hover{
+  background-color: #FCF4EE;
+}
 
 .main-content-home{
   grid-column: 2/-1;
