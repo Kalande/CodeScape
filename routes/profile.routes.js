@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const UserModel = require('../models/User.model');
 const SnippetModel = require('../models/Snippet.model');
-const axios = require('axios');
+
 const bcrypt = require('bcryptjs')
 
 router.get('/home', (req, res, next) => {
@@ -86,34 +86,6 @@ router.get('/home/:id/delete', (req, res, next) => {
 })
 
 //Edit routes to go here
-
-// Discover page routes
-router.get('/discover', (req, res, next) => {
-    const {_id} = req.session.loggedInUser
-    UserModel.findById(_id)
-    .then((user) => {
-       res.render("main/discover", {user}) 
-    })
-    .catch((err) => {
-        next(err)
-    })
-
-
-    axios.get('https://gh-trending-api.herokuapp.com/repositories/javascript?since=daily')
-    .then((response) => {
-        // console.log(response.data)
-    })
-    .catch(() => {
-        console.log("could not get api")
-    })
-})
-
-
-router.post('/discover', (req, res, next) => {
-    let language = req.body.languages;
-
-
-})
 
 // My profile routes
 

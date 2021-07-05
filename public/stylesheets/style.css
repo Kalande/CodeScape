@@ -92,12 +92,13 @@ body {
 .layout-for-sidebar{
   display: grid;
   grid-template-columns: 20rem 1fr;
-  grid-template-rows: 0.5fr 2fr 2fr 2fr;
+  grid-template-rows:auto;
 
 }
 .sidebar{
   grid-column: 1/2;
-  grid-row: 1/-1;
+  grid-row: auto;
+  align-self: stretch;
   background-color: white;
   height: 100rem;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
@@ -116,14 +117,21 @@ body {
 
 }
 .main-content-discover{
-  grid-column: 2/5;
-  grid-row: 1/5;
+  grid-column: 2/-1;
+  grid-row: 1/-1;
   display: grid;
-  grid-template-columns: 1fr 35rem 35rem 35rem 1fr;
-  grid-template-rows: 0.5fr 2fr 2fr 2fr;
-  row-gap: 5rem;
-  column-gap: 5rem;
+  grid-template-columns: auto;
+  grid-template-rows: 7rem auto;
 }
+.discover-boxes{
+  grid-column: auto;
+  grid-row: 2/-1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  gap: 3rem;
+  margin: 10rem;
+}
+
 .language-dropdown{
   grid-column:2/3;
   grid-row: 1/2;
@@ -131,6 +139,7 @@ body {
 }
 .trending-box{
   width: 35rem;
+  height: 30rem;
   background-color: white;
   border-radius: 3rem;
   box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.1);
@@ -138,7 +147,7 @@ body {
 .trending-box p{
   margin: 5rem;
 }
-.box-1{
+/* .box-1{
   grid-column: 2/3;
   grid-row: 2/3;
 }
@@ -186,7 +195,7 @@ body {
   grid-column: 4/5;
   grid-row: 4/5;
 
-}
+} */
 /* End of discover page */
 
 /* Main page start */
