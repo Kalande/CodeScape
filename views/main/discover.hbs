@@ -54,19 +54,16 @@
             </div>
             {{!-- will place EACH loop to add nfo from API --}}
             <div class="discover-boxes">
-            {{#each response}}
-                <div class="trending-box"> <p> hey {{this.data}}</p></div>
-
+            {{#each response.data}}
+                <div class="trending-box"> 
+                    <a class="box-repo-name" target=”_blank” href="{{this.url}}">{{this.repositoryName}}</a>
+                    <p class="box-lang">  <i style="color:{{this.languageColor}}" class="fas fa-circle"></i>  {{this.language}}</p>
+                    <p class="box-description">{{this.description}}</p>
+                    <p class="box-starred"><i style="color:yellow" class="fas fa-star"></i>{{this.totalStars}}</p>
+                    <p class="box-forked"><i style="color:orange" class="fas fa-code-branch"></i>{{this.forks}}</p>
+                    <p class="box-username">by {{this.username}}</p>
+                </div>
             {{/each}}
-                {{!-- <div class="trending-box box-1"> <p> BOX 1</p></div>
-                <div class="trending-box box-2"> <p> BOX 2</p></div>
-                <div class="trending-box box-3"> <p> BOX 3</p></div>
-                <div class="trending-box box-4"> <p> BOX 4</p></div>
-                <div class="trending-box box-5"> <p> BOX 5</p></div>
-                <div class="trending-box box-6"> <p> BOX 6</p></div>
-                <div class="trending-box box-7"> <p> BOX 7</p></div>
-                <div class="trending-box box-8"> <p> BOX 8</p></div>
-                <div class="trending-box box-9"> <p> BOX 9</p></div> --}}
             </div>
         </div>
     </div>
