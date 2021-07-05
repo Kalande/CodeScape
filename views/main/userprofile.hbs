@@ -15,8 +15,8 @@
     </form>
   </div>
   <div class="logo-wrapper">
-    <p>CODESPACE</p>
-    <img src="/images/logo-dark.png" width="50px" alt="logo">
+      <p>Logout</p> 
+      <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
   </div>
 </nav>
 <div class="nav-placeholder"> </div>
@@ -28,7 +28,18 @@
   </div>
   {{!-- Main content starts here --}}
   <div class="main-content-home">
+    <div>
     <h1>{{user.username}}</h1>
+    {{#if following}}
+    <form class="search-snippet-form" method="POST" action="/profile/{{user._id}}/unfollow">
+      <button type="submit">Following</button>
+    </form>
+    {{else}}
+    <form class="search-snippet-form" method="POST" action="/profile/{{user._id}}">
+      <button type="submit">Follow</button>
+    </form>
+    {{/if}}
+    </div>
     <div class="snippets-wrapper">
       {{#if searcherr}}
       <p class="error">{{searcherr}}</p>

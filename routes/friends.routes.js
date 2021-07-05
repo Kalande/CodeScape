@@ -30,9 +30,17 @@ router.get('/find-friends', loggedIn, (req, res, next) => {
 
 router.get('/profile/:id', loggedIn, (req, res, next) => {
     const {id} = req.params
+    const {_id} = req.session.loggedInUser
     UserModel.findById(id)
     .populate('posts')
     .then((user) => {
+        const {followers} = user
+        if(followers.includes(_id)){
+          req.app.locals.following = true;
+        }
+        else{
+          req.app.locals.following = false;
+        } 
         const {username, imageUrl} = req.session.loggedInUser
         res.render('main/userprofile', {user, username, imageUrl})
     })
@@ -41,7 +49,50 @@ router.get('/profile/:id', loggedIn, (req, res, next) => {
     })
 })
 
+router.post('/profile/:id', (req, res, next) => {
+    const {id} = req.params
+    const {_id, following} = req.session.loggedInUser
+    following.push(id)
+    UserModel.findByIdAndUpdate(id, {followers: [...followers,_id]}, {new: true})
+    .then(() => {
+        UserModel.findByIdAndUpdate(_id, {following: following}, {new: true})
+        .then((user) => {
+            req.session.loggedInUser = user
+            res.redirect(`/profile/${id}`)
+        })
+        .catch(() => {
+            
+        })
+   
+    })
+    .catch((err) => {
+        next(err) 
+    })
+})
 
+router.post('/profile/:id/unfollow', (req, res, next) => {
+    const {id} = req.params
+    const {_id, following} = req.session.loggedInUser
+    let index = following.indexOf(id)
+    following.splice(index,0)
+    UserModel.findById(id)
+    .then((user) => {
+        const {followers} = user
+        let i = followers.indexOf(_id)
+        followers.splice(i,0)
+        return UserModel.findByIdAndUpdate(id, {followers: followers}, {new: true}) 
+    })
+    .then(() => {
+        return UserModel.findByIdAndUpdate(_id, {following: following}, {new: true})   
+    })
+    .then((user) => {
+        req.session.loggedInUser = user
+        res.redirect(`/profile/${id}`)
+    })
+    .catch((err) => {
+        next(err) 
+    })
+})
 
 
 module.exports = router;

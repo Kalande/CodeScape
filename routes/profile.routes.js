@@ -144,6 +144,8 @@ router.post('/home/:id/edit', (req, res, next) => {
 router.get('/myprofile', loggedIn, (req, res, next) => {
     const {_id} = req.session.loggedInUser
     UserModel.findById(_id)
+    .populate('following')
+    .populate('followers')
     .then((user) => {
         res.render('main/myprofile', {user})
     })

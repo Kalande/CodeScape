@@ -21,5 +21,20 @@
 </div>
 
 <hr>
+<div>
+<h1>Following</h1>
+<ol>
+{{#each user.following}}
+    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+{{/each}}
+</ol>
+</div>
 
-<h1>Friends</h1>
+<div>
+<h1>Followers</h1>
+<ol>
+{{#each user.followers}}
+    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+{{/each}}
+</ol>
+</div>

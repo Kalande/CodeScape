@@ -22,6 +22,14 @@ const userSchema = new Schema({
   },
   imageUrl: {
     type: String
+  },
+  following: {
+    ref: 'User',
+    type: [Schema.Types.ObjectId]
+  },
+  followers: {
+    ref: 'User',
+    type: [Schema.Types.ObjectId]
   }
 });
 
