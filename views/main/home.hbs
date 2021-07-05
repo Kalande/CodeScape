@@ -8,9 +8,12 @@
     </div>
     <div class="snippet-search-bar">
         <form class="search-snippet-form" method="GET" action="/home">
-          <input type="text" name="search" placeholder="Search Here">
+          <input type="text" name="search" placeholder="Search Snippets">
           <button type="submit">Search</button>
         </form>
+         <form class="search-snippet-form" action="/find-friends">
+         <button type="submit">Clear</button>
+         </form>
         {{#if searcherr}}
             <p class="error">{{searcherr}}</p>
         {{/if}}

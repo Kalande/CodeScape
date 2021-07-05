@@ -1,0 +1,51 @@
+<section class="home-page">
+  <nav class="discover-nav">
+    <div class="user-info">
+        <div class="user-image-wrapper">
+            <img src="/images/images.png"  alt="user-pic">
+        </div>
+        <a href="/myprofile" class="user-link">{{user.username}}</a>
+    </div>
+    <div class="snippet-search-bar">
+        <form class="search-snippet-form" method="GET" action="/find-friends">
+          <input type="text" name="search" placeholder="Search Users">
+          <button type="submit">Search</button>
+        </form>
+         <form class="search-snippet-form" action="/find-friends">
+         <button type="submit">Clear</button>
+         </form>
+        
+        {{#if searcherr}}
+            <p class="error">{{searcherr}}</p>
+        {{/if}}
+    </div>
+    <div class="logo-wrapper">
+        <p>CODESPACE</p>
+        <img src="/images/logo-dark.png" width="50px" alt="logo">
+    </div>
+  </nav> 
+  <div class="nav-placeholder"> </div>
+  <div class="home-wrapper layout-for-sidebar">
+      <div class="sidebar">
+        <div class="my-snippets selected">My snippets</div>
+        <div class="discover ">Discover</div>
+        <div class="resources">Resources</div>
+      </div>
+        {{!-- Main content starts here --}}
+      <div class="main-content-home">
+        <div class="snippets-wrapper">
+          <ol>
+            {{#each users}}
+               <li>
+                   {{this.username}}
+               </li>
+            {{/each}}
+          </ol>
+        </div>
+
+    </div>   
+  </div>
+
+  <script src="/js/prism.js"></script>
+
+</section>
