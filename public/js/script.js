@@ -9,7 +9,7 @@ document.addEventListener(
 let editor = CodeMirror.fromTextArea(
   document.querySelector('#editor'), {
   mode: "javascript",
-  theme: "dracula",
+  theme: "tomorrow-night-bright",
   lineNumbers: true,
   autoCloseBrackets: true
 }

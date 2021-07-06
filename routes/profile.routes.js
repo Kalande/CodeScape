@@ -74,10 +74,10 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
    UserModel.findByIdAndUpdate(_id, {imageUrl: path})
    .then(() => {
        res.redirect('/myprofile')
-   })
-   .catch(() => {
+    })
+    .catch(() => {
        
-   })
+    })
     
 })
 

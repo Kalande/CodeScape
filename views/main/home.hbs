@@ -9,11 +9,11 @@
     </div>
     <div class="snippet-search-bar">
       <form class="search-snippet-form" method="GET" action="/home">
-        <input type="text" name="search" placeholder="Search Snippets">
-        <button type="submit">Search</button>
+        <input type="text" name="search" placeholder="Search snippets">
+        <button id="search-snippet-button" type="submit"><i class="fas fa-search"></i></button>
       </form>
       <form class="search-snippet-form" action="/home">
-        <button type="submit">Clear</button>
+        <button id="clear-snippet-search-btn" type="submit">Clear</button>
       </form>
 
     </div>
@@ -27,6 +27,7 @@
   <div class="home-wrapper layout-for-sidebar">
     <div class="sidebar">
       <div class="my-snippets selected"><a href="/home">My snippets</a></div>
+      <div class="find-friends "><a href="/findfriends">Find friends</a></div>
       <div class="discover "><a href="/discover">Discover</a></div>
       <div class="resources"><a href="/resources"> Resources</a></div>
     </div>
@@ -35,52 +36,52 @@
       <div class="create-snippet-form">
         <form method="POST" action="/home">
           <div class="form-group">
-            <label for="editor">Create your snippet</label>
+            <label  for="editor">New snippet</label>
             <input type="text" name="title" placeholder="Title">
+            <button class="btn btn-primary" type="submit">Create</button>
             {{#if error}}
             <p class="error">{{error}}</p>
             {{/if}}
             <textarea type="text" name="content" class="form-control" id="editor"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">Create</button>
+
         </form>
       </div>
-          <div class="snippets-wrapper">      
-            {{#if searcherr}}
-               <p class="error">{{searcherr}}</p>
-            {{/if}}
-            <ol>
-              {{#each user.posts}}
-              <li class="line-numbers">
-                <label for="snippet">{{this.title}} </label>
-                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-              </li>
-              <form action="/home/{{this._id}}/delete">
-                <button class="btn btn-primary" type="submit">DELETE</button>
-              </form>
-              <br>
-              <form action="/home/{{this._id}}/edit">
-                <button class="btn btn-primary" type="submit">EDIT</button>
-              </form>
-              {{/each}}
-            </ol>
-            <ol>
-              {{#each posts}}
-              <li class="line-numbers">
-                <label for="snippet">{{this.title}}</label>
-                <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-              </li>
-              <form action="/home/{{this._id}}/delete">
-                <button class="btn btn-primary" type="submit">DELETE</button>
-              </form>
+      <div class="snippets-wrapper">      
+        {{#if searcherr}}
+            <p class="error">{{searcherr}}</p>
+        {{/if}}
+        <ol>
+          {{#each user.posts}}
+          <li class="line-numbers">
+            <label class="snippet-title" for="snippet">{{this.title}} </label>
+            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+          </li>
+          <form action="/home/{{this._id}}/delete">
+            <button class="btn btn-primary" type="submit">DELETE</button>
+          </form>
+          <form action="/home/{{this._id}}/edit">
+            <button class="btn btn-primary" type="submit">EDIT</button>
+          </form>
+          {{/each}}
+        </ol>
+        <ol>
+          {{#each posts}}
+          <li class="line-numbers">
+            <label for="snippet">{{this.title}}</label>
+            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+          </li>
+          <form action="/home/{{this._id}}/delete">
+            <button class="btn btn-primary" type="submit">DELETE</button>
+          </form>
 
-              <form action="/home/{{this._id}}/edit">
-                <button class="btn btn-primary" type="submit">EDIT</button>
-              </form>
+          <form action="/home/{{this._id}}/edit">
+            <button class="btn btn-primary" type="submit">EDIT</button>
+          </form>
 
-              {{/each}}
-            </ol>
-          </div>
+          {{/each}}
+        </ol>
+      </div>
     </div>
 
     <script src="/js/prism.js"></script>
