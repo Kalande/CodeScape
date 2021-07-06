@@ -41,3 +41,26 @@ Orange: rgb( 203, 103, 21)
 .not-found-button  button:hover{
   background-color: rgb(96, 119, 133);
 }
+/* --------------------- */
+/* Start of Profile page */
+/* --------------------- */
+.main-content-profile{
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+    /* display: grid; */
+    /* grid-template-columns: auto;
+    grid-template-rows: 7rem auto; */
+  }
+
+.profile-image-wrapper{
+    width: 5rem;
+    height: 5rem;
+}
+  
+.profile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10%;
+}
+  /* End of Profile page */

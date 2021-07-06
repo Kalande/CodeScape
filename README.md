@@ -68,4 +68,4 @@ POST /signup
 
 ### Slides
 
-Slides Link
+[Slides Link](https://docs.google.com/presentation/d/1c3jc7EyW_yYRE_Tm-s-mhmGKUYmDysP5x9hr41UBlAU/edit?usp=sharing)

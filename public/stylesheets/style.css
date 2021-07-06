@@ -349,12 +349,3 @@ font-size: 1.9rem;
 
 
 /*End of main page */ 
-/* Start of Profile page */
-.main-content-profile{
-  grid-column: 2/-1;
-  grid-row: 1/-1;
-  /* display: grid; */
-  /* grid-template-columns: auto;
-  grid-template-rows: 7rem auto; */
-}
-/* End of Profile page */
