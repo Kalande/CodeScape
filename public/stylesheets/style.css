@@ -1,4 +1,3 @@
-
 /* palette
 Light grey rgb(245, 245, 245)
 Grey rgb(179, 179, 179)
@@ -133,7 +132,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
   gap: 3rem;
-  margin: 10rem;
+  margin: 3rem 8.5rem ;
 }
 
 .language-dropdown{
@@ -165,6 +164,7 @@ body {
   position: relative;
   top: 2rem;
   left: 2rem;
+  padding-right: 6rem;
 }
 
 .box-lang{
@@ -180,6 +180,7 @@ body {
   left: -5rem;
   display: inline-block;
   padding-left: 1rem;
+
 
 }
 .box-description{
@@ -269,7 +270,7 @@ body {
   grid-row: 1/-1;
   display: grid;
   grid-template-columns: 1fr 110rem  1fr;
-  grid-template-rows: 0.5fr 2fr 2fr 2fr;
+  grid-template-rows: 30rem auto;
 
 }
 .create-snippet-form{
@@ -328,8 +329,25 @@ body {
 }
 .snippets-wrapper li{
 color: #000;
-
+font-size: 1.9rem;
 }
+.delete-btn{
+  position: relative;
+  left: 69rem;
+  border: none;
+  top: 4rem;
+}
+.delete-btn i, .edit-btn i{
+  font-size: 1.7rem;
+}
+.edit-btn{
+  position: relative;
+  left: 65rem;
+  border: none;
+  top: 2rem;
+}
+
+
 /*End of main page */ 
 /* Start of Profile page */
 .main-content-profile{
