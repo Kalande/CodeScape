@@ -1,18 +1,30 @@
 <div class="parent">
     <div class="banner">
-        <img src="/images/facebook_cover_photo_2.png" alt="CodeScape banner" height="500px">
+        <img src="/images/logo_transparent.png" alt="CodeScape banner" height="350px">
+        <div class="text">
+        <h1>Welcome to CodeScape</h1>
+        <br>
+        <hr>
+        <br>
+        <h6>
+            CodeScape is a code-snippet platform designed to assist developers
+            by allowing the user to save snippets of code for future reference.
+            CodeScape gives users the oppurtunity to share, find friends and 
+            explore the work of other developers all on one platform.
+        </h6>
+        </div>
     </div>
     <div class="buttons">
-    <div >
-        <form action="/login">
-            <button class="btn-home" type="submit">Login</button>
-        </form>
-    </div>
-    <div class="bottom">
-        <form action="/signup">
-            <button class="btn-home" type="submit">Sign Up</button>
-        </form>
-    </div>
+        <div>
+            <form action="/login">
+                <button class="btn-home" type="submit">Login</button>
+            </form>
+        </div>
+        <div class="bottom">
+            <form action="/signup">
+                <button class="btn-home" type="submit">Sign Up</button>
+            </form>
+        </div>
     </div>
 </div>
 <style>
@@ -21,34 +33,63 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        align-content: space-between;
+        background: #47555e;
+        height: 100%;
     }
 
     .banner {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        position: fixed;
+        align-items: flex-start;
         background: #47555e;
-        top: 20px;
         width: 90%;
+        height: 40%;
         border-radius: 20px;
+        margin-top: 50px;
+        padding: 10px;
     }
 
     .buttons {
-        position: fixed;
-        top: 60%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        align-content: space-around;
+        position: absolute;
+        top: 500px;
+        margin-top: 20px;
     }
+
     .btn-home {
-        width: 500px;
-        height: 70px;
+        width: 300px;
+        height: 80px;
         font-size: x-large;
+        color: rgb( 227, 168, 120);
+        border-radius: 20px;
+        background: none;
+        border: 5px solid rgb( 203, 103, 21);
     }
+
+    .text {
+        color: #eeee;
+        align-self: center;
+        position: absolute;
+        top: 120px;
+        font-size: 40px;
+        width: 900px;
+        margin-left:50px;
+    }
+
+    h6{
+        font-weight: 100;
+        line-height: 120%;
+    }
+
     .bottom {
         margin-top: 30px;
+    }
+    .btn-home:hover {
+        cursor: pointer;
     }
 </style>

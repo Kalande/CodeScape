@@ -15,12 +15,14 @@ Orange: rgb( 203, 103, 21)
 }
 html {
   font-size: 62.5%;
+  height: 100%;
   /* as 1 rem - 16px, to make 1 rem = 10px, we need to 10px/16px*100  */
 }
 
 body {
   background-color: rgb(245, 245, 245);
   font-size: 1.5rem;
+  height: 100%;
 }
 
 
