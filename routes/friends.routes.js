@@ -53,7 +53,12 @@ router.post('/profile/:id', (req, res, next) => {
     const {id} = req.params
     const {_id, following} = req.session.loggedInUser
     following.push(id)
-    UserModel.findByIdAndUpdate(id, {followers: [...followers,_id]}, {new: true})
+    UserModel.findById(id)
+    .then((user) => {
+        const {followers} = user
+        console.log(followers)
+        return UserModel.findByIdAndUpdate(id, {followers: [...followers,_id]}, {new: true})
+    })
     .then(() => {
         UserModel.findByIdAndUpdate(_id, {following: following}, {new: true})
         .then((user) => {
@@ -74,16 +79,16 @@ router.post('/profile/:id/unfollow', (req, res, next) => {
     const {id} = req.params
     const {_id, following} = req.session.loggedInUser
     let index = following.indexOf(id)
-    following.splice(index,0)
+    let unfollow = following.splice(index,0)
     UserModel.findById(id)
     .then((user) => {
         const {followers} = user
         let i = followers.indexOf(_id)
-        followers.splice(i,0)
-        return UserModel.findByIdAndUpdate(id, {followers: followers}, {new: true}) 
+        let arrfollowers = followers.splice(i,0)
+        return UserModel.findByIdAndUpdate(id, {followers: arrfollowers}, {new: true}) 
     })
     .then(() => {
-        return UserModel.findByIdAndUpdate(_id, {following: following}, {new: true})   
+        return UserModel.findByIdAndUpdate(_id, {following: unfollow}, {new: true})   
     })
     .then((user) => {
         req.session.loggedInUser = user

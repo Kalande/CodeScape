@@ -64,13 +64,14 @@ router.post('/home', (req, res, next) => {
 })
 
 router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
-    const {imageUrl} = req.file.path
+    const {path} = req.file
+    console.log(req.file)
     const {_id} = req.session.loggedInUser
    if (!req.file) {
      next(new Error('No file uploaded!'));
      return;
    }
-   UserModel.findByIdAndUpdate(_id, {imageUrl: imageUrl})
+   UserModel.findByIdAndUpdate(_id, {imageUrl: path})
    .then(() => {
        res.redirect('/myprofile')
    })
