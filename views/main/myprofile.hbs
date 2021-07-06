@@ -24,22 +24,24 @@
 
     <div class="main-content-profile">
         <div class="user-info-div">
+            <div class="profile-image-wrapper">
                 <img src="{{user.imageUrl}}" alt="user picture">
-                <form method="POST" action="/upload" enctype="multipart/form-data">
-                    <input type="file" name="imageUrl" accept="image/png, image/jpg">
-                    <button type="submit">Upload</button> 
-                </form> 
-                <form class="" method="POST" action="/myprofile">
-                    <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
-                    <br>
-                    <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
-                    <br>
-                    <input type="password" name="password" placeholder="Create new password">
-                    <button type="submit">Submit</button>
-                    {{#if error}}
-                    <p class="error">{{error}}</p>
-                    {{/if}}
-                </form>
+            </div>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <input type="file" name="imageUrl" accept="image/png, image/jpg">
+                <button type="submit">Upload</button> 
+            </form> 
+            <form class="" method="POST" action="/myprofile">
+                <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
+                <br>
+                <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
+                <br>
+                <input type="password" name="password" placeholder="Create new password">
+                <button type="submit">Submit</button>
+                {{#if error}}
+                <p class="error">{{error}}</p>
+                {{/if}}
+            </form>
         </div>
         
 

@@ -47,40 +47,46 @@
 
         </form>
       </div>
-      <div class="snippets-wrapper">      
+      <div class="snippets-wrapper">     
+
         {{#if searcherr}}
             <p class="error">{{searcherr}}</p>
         {{/if}}
         <ol>
           {{#each user.posts}}
+          <form action="/home/{{this._id}}/delete">
+            <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
+          </form>
+          <form action="/home/{{this._id}}/edit">
+            <button class="btn edit-btn btn-primary" type="submit"><i class="fas fa-edit"></i></button>
+          </form> 
           <li class="line-numbers">
             <label class="snippet-title" for="snippet">{{this.title}} </label>
             <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
           </li>
-          <form action="/home/{{this._id}}/delete">
-            <button class="btn btn-primary" type="submit">DELETE</button>
-          </form>
-          <form action="/home/{{this._id}}/edit">
-            <button class="btn btn-primary" type="submit">EDIT</button>
-          </form>
+
+
+          <br>
+          <br>
+          <br>
           {{/each}}
         </ol>
-        <ol>
+        {{!-- <ol>
           {{#each posts}}
           <li class="line-numbers">
             <label for="snippet">{{this.title}}</label>
             <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
           </li>
           <form action="/home/{{this._id}}/delete">
-            <button class="btn btn-primary" type="submit">DELETE</button>
+            <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
           </form>
 
           <form action="/home/{{this._id}}/edit">
-            <button class="btn btn-primary" type="submit">EDIT</button>
+            <button class="btn edit-btn btn-primary" type="submit"><i class="fas fa-edit"></i></button>
           </form>
 
           {{/each}}
-        </ol>
+        </ol> --}}
       </div>
     </div>
 
