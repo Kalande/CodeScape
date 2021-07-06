@@ -5,8 +5,8 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
-    index: "text"
+    index: "text",
+    unique: true
   },
   email: {
     type: String,
@@ -35,5 +35,7 @@ const userSchema = new Schema({
 
 
 const User = model("User", userSchema);
+
+User.createIndexes()
 
 module.exports = User;

@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const UserModel = require('../models/User.model');
 const loggedIn = require('../middlewares/authcheck');
-const SnippetModel = require('../models/Snippet.model');
 
 router.get('/find-friends', loggedIn, (req, res, next) => {
     const {user} = req.query

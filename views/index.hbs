@@ -1,5 +1,54 @@
-<h1>{{title}} 🚀</h1>
+<div class="parent">
+    <div class="banner">
+        <img src="/images/facebook_cover_photo_2.png" alt="CodeScape banner" height="500px">
+    </div>
+    <div class="buttons">
+    <div >
+        <form action="/login">
+            <button class="btn-home" type="submit">Login</button>
+        </form>
+    </div>
+    <div class="bottom">
+        <form action="/signup">
+            <button class="btn-home" type="submit">Sign Up</button>
+        </form>
+    </div>
+    </div>
+</div>
+<style>
+    .parent {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: space-between;
+    }
 
-<a href="/">Home</a>
-<a href="/login"> <b>Login</b></a>
-<a href="/signup"> <b>Signup</b></a>
+    .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: #47555e;
+        top: 20px;
+        width: 90%;
+        border-radius: 20px;
+    }
+
+    .buttons {
+        position: fixed;
+        top: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .btn-home {
+        width: 500px;
+        height: 70px;
+        font-size: x-large;
+    }
+    .bottom {
+        margin-top: 30px;
+    }
+</style>
