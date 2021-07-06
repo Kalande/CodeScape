@@ -1,40 +1,67 @@
-<h1>My Profile</h1>
+<section class="profile-page">
 
-<div class="">
-    <img src="{{user.imageUrl}}" alt="user picture">
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="imageUrl" accept="image/png, image/jpg">
-        <button type="submit">Upload</button> 
-    </form> 
-    <form class="" method="POST" action="/myprofile">
-        <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
-        <br>
-        <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
-        <br>
-        <input type="password" name="password" placeholder="Create new password">
-        <button type="submit">Submit</button>
-    </form>
-    
-    {{#if error}}
-    <p class="error">{{error}}</p>
-    {{/if}}
-</div>
+    <nav class="discover-nav">
+        <div class="user-info">
+            <div class="user-image-wrapper">
+                <img src="{{user.imageUrl}}"  alt="user-pic">
+            </div>
+            <a href="/myprofile" class="user-link selected">{{user.username}}</a>
+        </div>
+        <div class="logo-wrapper">
+      <p>Logout</p> 
+      <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
+        </div>
+    </nav> 
+    <div class="nav-placeholder"> </div>
+    <div class="discover-wrapper layout-for-sidebar">
+        <div class="sidebar">
 
-<hr>
-<div>
-<h1>Following</h1>
-<ol>
-{{#each user.following}}
-    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
-{{/each}}
-</ol>
-</div>
+            <div class="my-snippets "><a href="/home">My snippets</a></div>
+            <div class="find-friends "><a href="/findfriends">Find friends</a></div>
+            <div class="discover "><a href="/discover">Discover</a></div>
+            <div class="resources"><a href="/resources"> Resources</a></div>
+        </div>
 
-<div>
-<h1>Followers</h1>
-<ol>
-{{#each user.followers}}
-    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
-{{/each}}
-</ol>
-</div>
+    <div class="main-content-profile">
+        <div class="user-info-div">
+                <img src="{{user.imageUrl}}" alt="user picture">
+                <form method="POST" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+                    <button type="submit">Upload</button> 
+                </form> 
+                <form class="" method="POST" action="/myprofile">
+                    <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
+                    <br>
+                    <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
+                    <br>
+                    <input type="password" name="password" placeholder="Create new password">
+                    <button type="submit">Submit</button>
+                    {{#if error}}
+                    <p class="error">{{error}}</p>
+                    {{/if}}
+                </form>
+        </div>
+        
+
+        <div class="following-and-followers">
+            <div class="following">
+                <h1>Following</h1>
+                <ol>
+                {{#each user.following}}
+                    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+                {{/each}}
+                </ol>
+            </div>
+
+            <div class="folowers">
+                <h1>Followers</h1>
+                <ol>
+                {{#each user.followers}}
+                    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+                {{/each}}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</section>
