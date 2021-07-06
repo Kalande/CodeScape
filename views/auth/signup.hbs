@@ -1,15 +1,165 @@
-<h1>Welcome back to CodeScape!</h1>
-
-<div class="signup-form-wrapper" >
-    <form class="signup-form" method="POST" action="/signup">
-        <input type="text" name="username" placeholder="Enter your username">
-        <input type="text" name="email" placeholder="Enter your email">
-        <input type="password" name="password" placeholder="Enter your password">
-        <button type="submit">Sign Up</button>
+<div class="parent color">
+  <div class="text">
+    <h1>Welcome to CodeScape!</h1>
+    <p>Already a user? <a href="/login">Log In</a></p>
+  </div>
+  <div class="logo-form1 position"></div>
+  <div class="logo-form2 position"></div>
+  <div class="logo-form3 position"></div>
+  <div class="logo-form4 position"></div>
+  <div class="form-box position">
+    <div>
+      <img src="images/logo-dark.png" alt="CodeScape logo">
+    </div>
+    <br>
+    <form class="parent" method="POST" action="/signup">
+      <div>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <br>
+      <div>
+        <input type="text" name="email" placeholder="Email">
+      </div>
+      <br>
+      <div>
+        <input type="password" name="password" placeholder="Password" >
+      </div>
+      <div>
+        <button class="button" type="submit">Sign Up</button>
+      </div>
     </form>
+  </div>
+  {{#if error}}
+  <p class="error position">{{error}}</p>
+  {{/if}}
+  <div class="credits">Built by Kalande and Lily</div>
 </div>
 
 
-{{#if error}}
-  <p class="error">{{error}}</p>
-{{/if}}
+
+<style>
+  .color {
+    background-color: #47555e;
+    height: 100%;
+  }
+
+  .parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    justify-items: center;
+  }
+
+  .button {
+    margin-top: 50px;
+    height: 50px;
+    width: 150px;
+    background: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: rgb(227, 168, 120);
+    border: 5px solid rgb(203, 103, 21);
+  }
+
+  .button:hover {
+    cursor: pointer;
+  }
+
+  .position {
+    position: absolute;
+    top: 20%;
+  }
+
+  input {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+
+  .form-box {
+    border-left: 5px solid #eeee;
+    border-right: 5px solid #eeee;
+    height: 650px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: none;
+  }
+
+  img {
+    margin: 0px;
+    width: 150px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+  }
+
+  .text {
+    margin-top: 40px;
+    font-size: 40px;
+    color: #eeee;
+    text-align: center;
+  }
+  
+  p{
+    font-size: 25px;
+  }
+
+  a{
+    color: rgba(187, 187, 187, 0.933);
+  }
+
+  .logo-form1 {
+    transform: rotate(55deg);
+    width: 450px;
+    height: 450px;
+    top: 25%;
+    right: 41.5%;
+    border-left: 5px solid #eeee;
+  }
+
+  .logo-form2 {
+    transform: rotate(125deg);
+    width: 450px;
+    height: 450px;
+    top: 25%;
+    right: 36.3%;
+    border-left: 5px solid #eeee;
+  }
+
+  .logo-form3 {
+    transform: rotate(305deg);
+    width: 450px;
+    height: 450px;
+    top: 36%;
+    right: 41.5%;
+    border-left: 5px solid #eeee;
+  }
+
+  .logo-form4 {
+    transform: rotate(235deg);
+    width: 450px;
+    height: 450px;
+    top: 36%;
+    right: 36.3%;
+    border-left: 5px solid #eeee;
+  }
+
+  .error {
+    padding: 20px;
+    background-color: red;
+    color: #eeee;
+    top: 92%;
+  }
+
+  .credits {
+    position: absolute;
+    top: 98%;
+    color: #eeee;
+  }
+
+</style>
