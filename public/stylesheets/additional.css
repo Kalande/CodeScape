@@ -44,6 +44,10 @@ Orange: rgb( 203, 103, 21)
 /* --------------------- */
 /* Start of Profile page */
 /* --------------------- */
+.profile-page{
+    width: 100%;
+    height: 100%;
+}
 .main-content-profile{
     grid-column: 2/-1;
     grid-row: 1/-1;
@@ -96,7 +100,7 @@ Orange: rgb( 203, 103, 21)
     white-space: normal;
     overflow:hidden;
     overflow-wrap: break-word;
-    margin-top: 5rem;
+    margin-top: 6rem;
     display: flex;
     justify-content: center;
   }
@@ -177,16 +181,6 @@ Orange: rgb( 203, 103, 21)
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .my-followers{
     grid-column: 2/3;
     grid-row: 2/3; 
@@ -205,6 +199,9 @@ Orange: rgb( 203, 103, 21)
     overflow:hidden;
     overflow-wrap: break-word;
     justify-self: center;
-    margin-top: 5rem;
-    }
+    margin-top: 6rem;
+}
+.following{
+    
+}
 /* End of Profile page */
