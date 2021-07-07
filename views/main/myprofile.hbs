@@ -2,6 +2,7 @@
 
     <nav class="discover-nav">
         <div class="user-info">
+
             <div class="user-image-wrapper">
                 <img src="{{user.imageUrl}}"  alt="user-pic">
             </div>
@@ -23,15 +24,19 @@
         </div>
 
     <div class="main-content-profile">
+        <h2 class="my-profile">My profile</h2>
         <div class="user-info-div">
-            <div class="profile-image-wrapper">
-                <img src="{{user.imageUrl}}" alt="user picture">
+            <div class="profile-picture">
+                <h5>Profile photo</h5>
+                <div class="profile-image-wrapper">
+                    <img src="{{user.imageUrl}}" alt="user picture">
+                </div>
+                <form method="POST" class="upload-picture" action="/upload" enctype="multipart/form-data">
+                    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+                    <button type="submit">Upload</button> 
+                </form> 
             </div>
-            <form method="POST" action="/upload" enctype="multipart/form-data">
-                <input type="file" name="imageUrl" accept="image/png, image/jpg">
-                <button type="submit">Upload</button> 
-            </form> 
-            <form class="" method="POST" action="/myprofile">
+            <form class="update-info-form" method="POST" action="/myprofile">
                 <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
                 <br>
                 <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
@@ -44,10 +49,10 @@
             </form>
         </div>
         
-
+        <h2 class="my-followers">Followers</h2>
         <div class="following-and-followers">
             <div class="following">
-                <h1>Following</h1>
+                <h3>Following</h1>
                 <ol>
                 {{#each user.following}}
                     <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
@@ -56,7 +61,7 @@
             </div>
 
             <div class="folowers">
-                <h1>Followers</h1>
+                <h3>Followers</h1>
                 <ol>
                 {{#each user.followers}}
                     <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>

@@ -1,7 +1,7 @@
 # CodeScape
 
 ## User stories
-
+CodeScape is an app designed for programmers to enable them to create, organize, and archive code snippets.
 
 ## Models
 #### Snippet model
@@ -52,7 +52,7 @@ POST /signup
 
 
 ## Backlog
-- Possibility to follow othe rusers and see their snippets;
+- Possibility to follow other users and see their snippets;
 - Resources page;
 
 
