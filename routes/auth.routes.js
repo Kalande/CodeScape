@@ -63,7 +63,7 @@ router.post('/signup', (req,res,next) => {
         return;
     }
 
-    UserModel.create({username, email, password: hash, imageUrl: '/images/images.png'})
+    UserModel.create({username, email, password: hash, imageUrl: '/images/images.png', about: `Hey I'm ${username}, and I'm on CodeScape`})
     .then(() => {
         res.redirect('/')
     })

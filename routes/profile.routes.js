@@ -72,7 +72,8 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
      return;
    }
    UserModel.findByIdAndUpdate(_id, {imageUrl: path})
-   .then(() => {
+   .then((user) => {
+       req.session.loggedInUser = user
        res.redirect('/myprofile')
     })
     .catch(() => {
@@ -156,11 +157,11 @@ router.get('/myprofile', loggedIn, (req, res, next) => {
 })
 
 router.post('/myprofile', (req, res, next) => {
-    const {username, email, password} = req.body
+    const {username, email, password, about} = req.body
     const {_id} = req.session.loggedInUser
 
     if(!password){
-        UserModel.findByIdAndUpdate(_id, {username, email}, {new: true})
+        UserModel.findByIdAndUpdate(_id, {username, email, about}, {new: true})
         .then(() => {
             res.redirect('/myprofile')
         })
@@ -182,7 +183,7 @@ router.post('/myprofile', (req, res, next) => {
         return;
     }
 
-    UserModel.findByIdAndUpdate(_id, {username, email, password: hash}, {new: true})
+    UserModel.findByIdAndUpdate(_id, {username, email, password: hash, about}, {new: true})
     .then((user) => {
         req.session.loggedInUser = user
         res.redirect('/myprofile')

@@ -30,6 +30,9 @@ const userSchema = new Schema({
   followers: {
     ref: 'User',
     type: [Schema.Types.ObjectId]
+  },
+  about: {
+    type: String,
   }
 });
 

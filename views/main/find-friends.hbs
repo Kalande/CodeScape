@@ -9,10 +9,10 @@
     <div class="snippet-search-bar">
         <form class="search-snippet-form" method="GET" action="/find-friends">
           <input type="text" name="user" placeholder="Search Users">
-          <button type="submit">Search</button>
+          <button id="search-snippet-button" type="submit"><i class="fas fa-search"></i></button>
         </form>
          <form class="search-snippet-form" action="/find-friends">
-         <button type="submit">Clear</button>
+         <button id="clear-snippet-search-btn" type="submit">Clear</button>
          </form>
     </div>
     <div class="logo-wrapper">
@@ -30,21 +30,42 @@
       </div>
         {{!-- Main content starts here --}}
       <div class="main-content-home">
-        <div class="snippets-wrapper">        
+        <div class="create-snippet-form">        
         {{#if searcherr}}
             <p class="error">{{searcherr}}</p>
         {{/if}}
           <ol>
             {{#each users}}
-               <li>
-                   <a href="/profile/{{this.id}}"><h1>{{this.username}}</h1></a>
+               <li class="profiles">
+                   <img class="profile-img" src="{{this.imageUrl}}" alt="{{this.username}} profile pic">
+                   <a href="/profile/{{this.id}}" class="users-link"><h1>{{this.username}}</h1></a>
                </li>
+               <br>
+               <hr>
+               <br>
             {{/each}}
           </ol>
         </div>
       </div>
     </div>   
   </div>
+
+  <style>
+    .profiles{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    .profile-img{
+      border-radius: 180px;
+      width: 100px;
+      margin-right: 15px;
+    }
+    .users-link{
+      color: #47555e;
+    }
+    
+  </style>
 
   <script src="/js/prism.js"></script>
 

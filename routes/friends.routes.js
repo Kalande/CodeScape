@@ -4,11 +4,11 @@ const loggedIn = require('../middlewares/authcheck');
 
 router.get('/find-friends', loggedIn, (req, res, next) => {
     const {user} = req.query
-
+    const {username, imageUrl} = req.session.loggedInUser
     if(user){
         UserModel.find({$text: {$search: user}})
         .then((users) => {
-            const {username, imageUrl} = req.session.loggedInUser
+            
             res.render('main/find-friends', {users, username, imageUrl})
         })
         .catch(() => {
@@ -17,9 +17,8 @@ router.get('/find-friends', loggedIn, (req, res, next) => {
         return;
     }
 
-    UserModel.find().limit(100)
+    UserModel.find({username: {$not: username}}).limit(100)
     .then((users) => {
-        const {username, imageUrl} = req.session.loggedInUser
         res.render('main/find-friends', {users, username, imageUrl})
     })
     .catch((err) => {
