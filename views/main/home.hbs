@@ -5,7 +5,6 @@
         <img src="{{user.imageUrl}}" alt="user-pic">
       </div>
       <a href="/myprofile" class="user-link">{{user.username}}</a>
-      
     </div>
     <div class="snippet-search-bar">
       <form class="search-snippet-form" method="GET" action="/home">
@@ -15,7 +14,6 @@
       <form class="search-snippet-form" action="/home">
         <button id="clear-snippet-search-btn" type="submit">Clear</button>
       </form>
-
     </div>
     
     <div class="logo-wrapper"> 
@@ -26,10 +24,13 @@
   <div class="nav-placeholder"> </div>
   <div class="home-wrapper layout-for-sidebar">
     <div class="sidebar">
-      <div class="my-snippets selected"><a href="/home">My snippets</a></div>
-      <div class="find-friends"><a href="/find-friends">Find friends</a></div>
-      <div class="discover "><a href="/discover">Discover</a></div>
-      <div class="resources"><a href="/resources"> Resources</a></div>
+      <div class="sidebar-main">
+        <div class="my-snippets selected"><a href="/home">My snippets</a></div>
+        <div class="find-friends"><a href="/find-friends">Find friends</a></div>
+        <div class="discover "><a href="/discover">Discover</a></div>
+        <div class="resources"><a href="/resources"> Resources</a></div>
+      </div>
+      {{!-- <div class="made-by">Made by<a target="_blank" href="/#"> Liliia</a> and <a target="_blank" href="/#"> Kalande</a></div> --}}
     </div>
     {{!-- Main content starts here --}}
     <div class="main-content-home">
@@ -38,6 +39,30 @@
           <div class="form-group">
             <label  for="editor">New snippet</label>
             <input type="text" name="title" placeholder="Title">
+            <select name="language" id="languages" class="languages">
+              <option value="javascript">JavaScript</option>
+              <option value="python">Python</option>
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="c++">C++</option>
+              <option value="shell">Shell</option>
+              <option value="typescript">Typescript</option>
+              <option value="java">Java</option>
+              <option value="php">PHP</option>
+              <option value="c#">C#</option>
+              <option value="ruby">Ruby</option>
+              <option value="c">C</option>
+              <option value="swift">Swift</option>
+              <option value="r">R</option>
+              <option value="objective-c">Objective-C</option>
+              <option value="scala">Scala</option>
+              <option value="go">Go</option>
+              <option value="powershell">PowerShell</option>
+              <option value="kotlin">Kotlin</option>
+              <option value="rust">Rust</option>
+              <option value="perl">Perl</option>
+              <option value="sql">SQL</option>
+            </select>
             <button class="btn btn-primary" type="submit">Create</button>
             {{#if error}}
             <p class="error">{{error}}</p>
@@ -62,6 +87,8 @@
           </form> 
           <li class="line-numbers">
             <label class="snippet-title" for="snippet">{{this.title}} </label>
+            <br>
+            <label class="snippet-language" for="snippet">{{this.language}}</label>
             <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
           </li>
 
@@ -71,7 +98,7 @@
           <br>
           {{/each}}
         </ol>
-        {{!-- <ol>
+        <ol>
           {{#each posts}}
           <li class="line-numbers">
             <label for="snippet">{{this.title}}</label>
@@ -86,7 +113,7 @@
           </form>
 
           {{/each}}
-        </ol> --}}
+        </ol>
       </div>
     </div>
 
