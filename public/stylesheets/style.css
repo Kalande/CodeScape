@@ -35,9 +35,9 @@ body {
 .sidebar{
   grid-column: 1/2;
   grid-row: auto;
+  height: 100%;
   align-self: stretch;
   background-color: white;
-  height: 100rem;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
 }
 .sidebar a{
@@ -120,6 +120,8 @@ body {
 .logo-wrapper img{
   margin-left: 2rem;
 }
+/* END OF NAVBAR */
+/* Main content discover */
 
 .main-content-discover{
   grid-column: 2/-1;
@@ -128,6 +130,30 @@ body {
   grid-template-columns: auto;
   grid-template-rows: 7rem auto;
 }
+.language-dropdown{
+  grid-column:2/3;
+  grid-row: 1/2;
+  margin-top: 2rem;
+  margin-left: 11rem;
+}
+.language-dropdown label{
+  display: block;
+  margin-bottom: 1rem;
+}
+.language-dropdown select{
+  width: 15rem;
+  height: 2.5rem;
+  background-color: white;
+  font-size: 1.5rem;
+  border: 0.5px solid rgb(187, 187, 187);
+}
+.language-dropdown button{
+  width: 3rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+}
 .discover-boxes{
   grid-column: auto;
   grid-row: 2/-1;
@@ -135,12 +161,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
   gap: 3rem;
   margin: 3rem 8.5rem ;
-}
-
-.language-dropdown{
-  grid-column:2/3;
-  grid-row: 1/2;
-  place-self: center;
 }
 .trending-box{
   width: 36rem;
@@ -348,6 +368,4 @@ font-size: 1.9rem;
   border: none;
   top: 2rem;
 }
-
-
 /*End of main page */ 

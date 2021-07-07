@@ -44,19 +44,30 @@ Orange: rgb( 203, 103, 21)
 /* --------------------- */
 /* Start of Profile page */
 /* --------------------- */
+.profile-page{
+    width: 100%;
+    height: 100%;
+}
 .main-content-profile{
     grid-column: 2/-1;
     grid-row: 1/-1;
     display: grid;
     grid-template-columns: 1fr 90rem  1fr;
     grid-template-rows: 40rem 40rem;
-  }
-
+}
+.profile-picture{
+    position: relative;
+    left: -9rem;
+}
+.profile-picture h5{
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
 .profile-image-wrapper{
     position: relative;
     width: 13rem;
     height: 13rem;
-    top: 3rem;
+    top: 2rem;
     left: -3rem;
 }
 .upload-picture{
@@ -64,11 +75,7 @@ Orange: rgb( 203, 103, 21)
     top: 3rem;
     left: -3rem;
 }
-.upload-picture button{
-    position: relative;
-    top: 5rem;
-    left: -29rem;
-}
+
 .profile-image-wrapper img {
     width: 100%;
     height: 100%;
@@ -93,19 +100,93 @@ Orange: rgb( 203, 103, 21)
     white-space: normal;
     overflow:hidden;
     overflow-wrap: break-word;
-    margin-top: 5rem;
+    margin-top: 6rem;
     display: flex;
     justify-content: center;
   }
-  .profile-picture{
+
+.upload-picture input{
+    display: none;
+}
+.upload-picture-label{
     position: relative;
-  }
-  .my-followers{
+    border: 1px solid ;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    left: -2rem;
+    color: #47555E;
+}
+.upload-picture button{
+    position: relative;
+    left: -1rem;
+    border: 1px solid #47555E;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    background-color: #47555E;
+    color: white;
+}
+.update-info-form{
+    position: relative;
+    top: 2rem;
+}
+.update-info-form input{
+    margin-top: 1rem;
+    height: 3rem;
+    background-color: #F5F5F5;
+    padding: 0.3rem;
+    font-size: 1.5rem;
+    border: 1px solid #47555E;
+}
+.update-info-form input:focus{
+    background-color: #FCF4EE;
+}
+.update-info-form p{
+    margin-top: 2rem;
+}
+
+.about{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 23rem;
+    top: -23rem;
+}
+.about textarea{
+    margin-top: 1rem;
+    background-color: #F5F5F5;
+    font-size: 1.5rem;
+    height: 8rem;
+}
+.about textarea:focus{
+    background-color: #FCF4EE;
+}
+.about button{
+    border: 1px solid #CB6715;
+    width: 15rem;
+    margin-top: 6rem;
+    margin-left: 1rem;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 1.6rem;
+    background-color: #E4AE82;
+}
+.about button:hover{
+    background-color: #ecb383;
+}
+
+
+.my-followers{
     grid-column: 2/3;
     grid-row: 2/3; 
     margin-top: 2rem;
-  }
-  .following-and-followers{
+}
+.following-and-followers{
     grid-column: 2/3;
     grid-row: 2/3;
     width: 90rem;
@@ -118,6 +199,9 @@ Orange: rgb( 203, 103, 21)
     overflow:hidden;
     overflow-wrap: break-word;
     justify-self: center;
-    margin-top: 5rem;
-  }
-  /* End of Profile page */
+    margin-top: 6rem;
+}
+.following{
+    
+}
+/* End of Profile page */
