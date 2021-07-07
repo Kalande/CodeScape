@@ -27,27 +27,36 @@
         <h2 class="my-profile">My profile</h2>
         <div class="user-info-div">
             <div class="profile-picture">
-                <h5>Profile photo</h5>
+                <h5>Profile picture</h5>
                 <div class="profile-image-wrapper">
                     <img src="{{user.imageUrl}}" alt="user picture">
                 </div>
                 <form method="POST" class="upload-picture" action="/upload" enctype="multipart/form-data">
-                    <input type="file" name="imageUrl" accept="image/png, image/jpg">
-                    <button type="submit">Upload</button> 
+                    <label class="upload-picture-label"> 
+                        <input type="file" name="imageUrl" accept="image/png, image/jpg">
+                        Choose
+                    </label>
+                    <button class="upload-button" type="submit">Upload</button> 
                 </form> 
             </div>
             <form class="update-info-form" method="POST" action="/myprofile">
+                <p>Username</p>
                 <input type="text" name="username" placeholder="Enter your username" value="{{user.username}}">
-                <br>
+                <p>Email</p>
                 <input type="text" name="email" placeholder="Enter your email" value="{{user.email}}">
-                <br>
+                <p>Password</p>
                 <input type="password" name="password" placeholder="Create new password">
-                <button type="submit">Submit</button>
+                <div class="about">
+                    <p>About</p>
+                    <textarea name="about" placeholder="Tell us about yourself" value="{{user.about}}"> </textarea>{{!-- UPDATE HERE --}}
+                    <button type="submit">Submit</button>
+                </div>
                 {{#if error}}
                 <p class="error">{{error}}</p>
                 {{/if}}
             </form>
         </div>
+        
         
         <h2 class="my-followers">Followers</h2>
         <div class="following-and-followers">
