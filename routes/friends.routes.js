@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const UserModel = require('../models/User.model');
 const loggedIn = require('../middlewares/authcheck');
+const SnippetModel = require('../models/Snippet.model');
 
 router.get('/find-friends', loggedIn, (req, res, next) => {
     const {user} = req.query
@@ -17,7 +18,7 @@ router.get('/find-friends', loggedIn, (req, res, next) => {
         return;
     }
 
-    UserModel.find({username: {$not: username}}).limit(100)
+    UserModel.find({$nor: [{username: username}]}).limit(100)
     .then((users) => {
         res.render('main/find-friends', {users, username, imageUrl})
     })
@@ -97,5 +98,54 @@ router.post('/profile/:id/unfollow', (req, res, next) => {
     })
 })
 
+router.post('/profile/:postId/like', (req, res, next) => {
+    const {postId} = req.params
+    const {_id} = req.session.loggedInUser
+    SnippetModel.findById(postId)
+    .then((post) => {
+        const {likes} = post
+        if(!likes.includes(_id)){
+         likes.push(_id)
+         return SnippetModel.findByIdAndUpdate(postId, {likes: likes})   
+        }
+        else{
+            let i = likes.indexOf(_id)
+            let splice = likes.splice(i,0)
+         return SnippetModel.findByIdAndUpdate(postId, {likes: splice})
+        } 
+    })
+    .then((post) => {
+       const {owner} = post
+       res.redirect(`/profile/${owner}`)
+    })
+    .catch((err) => {
+        next(err)
+    })
+    
+})
 
+router.post('/profile/:postId/dislike', (req, res, next) => {
+    const {postId} = req.params
+    const {_id} = req.session.loggedInUser
+    SnippetModel.findById(postId)
+    .then((post) => {
+        const {dislikes} = post
+        if(!dislikes.includes(_id)){
+            dislikes.push(_id)
+            return SnippetModel.findByIdAndUpdate(postId, {dislikes: dislikes})   
+           }
+           else{
+               let i = dislikes.indexOf(_id)
+               let splice = dislikes.splice(i,0)
+            return SnippetModel.findByIdAndUpdate(postId, {dislikes: splice})
+           } 
+    })
+    .then((post) => {
+       const {owner} = post
+       res.redirect(`/profile/${owner}`)
+    })
+    .catch((err) => {
+        next(err)
+    })  
+})
 module.exports = router;

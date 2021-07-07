@@ -35,7 +35,7 @@ const sess = {
         maxAge: 48*60*60*1000
     },
     store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URI ||  "mongodb://localhost/CodeScape",
+        mongoUrl: process.env.MONGODB_URI ||  "mongodb://localhost/CodeScape",
         ttl: 48 * 60 * 60
     })
 }

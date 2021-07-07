@@ -10,7 +10,7 @@ router.get('/discover', loggedIn, (req, res, next) => {
     .then((user) => {
         axios.get(('https://gh-trending-api.herokuapp.com/repositories'))
         .then((response) => {
-            res.render("main/discover", {user, response }) 
+            res.render("main/discover", {user, response}) 
         })
     })
     .catch((err) => {
@@ -22,7 +22,6 @@ router.get('/discover', loggedIn, (req, res, next) => {
 router.post('/discover', (req, res, next) => {
     let language = req.body.languages;
     const {_id} = req.session.loggedInUser
-    console.log(language)
 
     axios.get(`https://gh-trending-api.herokuapp.com/repositories/${language}?since=daily&spoken_lang=en`)
     .then((response) => {

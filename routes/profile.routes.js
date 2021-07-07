@@ -7,13 +7,13 @@ const bcrypt = require('bcryptjs')
 
 router.get('/home', loggedIn, (req, res, next) => {
     const {search} = req.query
-
+    const {_id, username, imageUrl} = req.session.loggedInUser
     if (!search) {
-        const {_id} = req.session.loggedInUser
+        
         UserModel.findById(_id)
             .populate('posts')
             .then((user) => {
-                res.render('main/home', {user});
+                res.render('main/home', {user, username, imageUrl});
             })
             .catch((err) => {
                 next(err)
@@ -22,7 +22,7 @@ router.get('/home', loggedIn, (req, res, next) => {
         const {_id} = req.session.loggedInUser
         SnippetModel.find({$and: [{$text: {$search: search}}, {owner: _id}]})
             .then((posts) => {
-                res.render('main/home', {posts})
+                res.render('main/home', {posts, username, imageUrl})
             })
             .catch(() => {
                 res.render('main/home', {searcherr: "Cannot find what you're looking for"})

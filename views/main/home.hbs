@@ -2,9 +2,9 @@
   <nav class="discover-nav">
     <div class="user-info">
       <div class="user-image-wrapper">
-        <img src="{{user.imageUrl}}" alt="user-pic">
+        <img src="{{imageUrl}}" alt="user-pic">
       </div>
-      <a href="/myprofile" class="user-link">{{user.username}}</a>
+      <a href="/myprofile" class="user-link">{{username}}</a>
       
     </div>
     <div class="snippet-search-bar">
@@ -64,6 +64,7 @@
             <label class="snippet-title" for="snippet">{{this.title}} </label>
             <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
           </li>
+          <p>👍 {{this.likes.length}}  👎 {{this.dislikes.length}}</p>
 
 
           <br>
@@ -71,22 +72,28 @@
           <br>
           {{/each}}
         </ol>
-        {{!-- <ol>
+        <ol>
           {{#each posts}}
-          <li class="line-numbers">
-            <label for="snippet">{{this.title}}</label>
-            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
-          </li>
+
           <form action="/home/{{this._id}}/delete">
             <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
           </form>
 
           <form action="/home/{{this._id}}/edit">
             <button class="btn edit-btn btn-primary" type="submit"><i class="fas fa-edit"></i></button>
-          </form>
+          </form>          
+          <li class="line-numbers">
+            <label for="snippet">{{this.title}}</label>
+            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+          </li>
+          <p>👍 {{this.likes.length}}  👎{{this.dislikes.length}}</p>
 
+
+          <br>
+          <br>
+          <br>
           {{/each}}
-        </ol> --}}
+        </ol>
       </div>
     </div>
 

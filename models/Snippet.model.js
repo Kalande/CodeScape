@@ -13,6 +13,14 @@ const snippetSchema = new Schema({
     ref: 'User',
     type: Schema.Types.ObjectId
   },
+  likes: {
+    ref: 'User',
+    type: [Schema.Types.ObjectId]
+  },
+  dislikes: {
+    ref: 'User',
+    type: [Schema.Types.ObjectId]
+  },
   title: {
     type: String,
     required: true,

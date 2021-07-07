@@ -67,6 +67,16 @@
           <label class="snippet-title" for="snippet">{{this.title}}</label>
           <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
         </li>
+        <div class="profiles">
+          <form method="POST" action="/profile/{{this._id}}/like">
+            <button class="react-btn" type="submit">👍 {{this.likes.length}}</button>
+          </form>
+          <form method="POST" action="/profile/{{this._id}}/dislike">
+            <button class="react-btn" type="submit">👎 {{this.dislikes.length}}</button>
+          </form>
+        </div>
+        <br>
+        <br>
         {{/each}}
       </ol>
       {{else}}
@@ -127,6 +137,18 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+  }
+
+  .react-btn {
+    background: none;
+    width: 40px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 5px;
+
+  }
+  .react-btn:hover{
+    cursor: pointer;
   }
 </style>
 
