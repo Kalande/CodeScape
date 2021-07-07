@@ -136,7 +136,7 @@ Orange: rgb( 203, 103, 21)
     background-color: #F5F5F5;
     padding: 0.3rem;
     font-size: 1.5rem;
-    border: 1px solid #47555E;;
+    border: 1px solid #47555E;
 }
 .update-info-form input:focus{
     background-color: #FCF4EE;
