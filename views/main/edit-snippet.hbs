@@ -7,14 +7,16 @@
         <a href="/myprofile" class="user-link">{{user.username}}</a>
     </div>
     <div class="snippet-search-bar">
-        <form class="search-snippet-form" method="GET" action="/home">
-          <input type="text" name="search" placeholder="Search Here">
-          <button type="submit">Search</button>
-        </form>
+      <form class="search-snippet-form" method="GET" action="/home">
+        <input type="text" name="search" placeholder="Search snippets">
+        <button id="search-snippet-button" type="submit"><i class="fas fa-search"></i></button>
+      </form>
         {{#if searcherr}}
             <p class="error">{{searcherr}}</p>
         {{/if}}
     </div>
+
+
     <div class="logo-wrapper">
       <p>Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
@@ -23,7 +25,7 @@
   <div class="nav-placeholder"> </div>
   <div class="home-wrapper layout-for-sidebar">
       <div class="sidebar">
-            <div class="my-snippets "><a href="/home">My snippets</a></div>
+            <div class="my-snippets selected"><a href="/home">My snippets</a></div>
             <div class="find-friends "><a href="/find-friends">Find friends</a></div>
             <div class="discover "><a href="/discover">Discover</a></div>
             <div class="resources"><a href="/resources"> Resources</a></div>
@@ -51,13 +53,13 @@
                 <label for="snippet">{{this.title}}</label>
                 <pre><code class="language-javascript" id="snippet">{{this.content}}</code></pre>
               </li>
-            <form action="/home/{{this._id}}/delete">
-              <button class="btn btn-primary" type="submit">DELETE</button>
-            </form>
+          <form action="/home/{{this._id}}/delete">
+            <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
+          </form>
 
-             <form action="/home/{{this._id}}/edit">
-              <button class="btn btn-primary" type="submit">EDIT</button>
-            </form>
+          <form action="/home/{{this._id}}/edit">
+            <button class="btn edit-btn btn-primary" type="submit"><i class="fas fa-edit"></i></button>
+          </form>
 
             {{/each}}
           </ol>

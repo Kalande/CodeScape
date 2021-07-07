@@ -32,7 +32,8 @@ router.get('/home', loggedIn, (req, res, next) => {
 })
 
 router.post('/home', (req, res, next) => {
-    const {title,content} = req.body;
+    const {title,content,language} = req.body;
+    console.log(req.body)
     const {_id,posts} = req.session.loggedInUser
 
     if (!title) {
@@ -49,7 +50,7 @@ router.post('/home', (req, res, next) => {
         return;    
     }
 
-    SnippetModel.create({title,content,owner: _id,})
+    SnippetModel.create({title,content,language,owner: _id,})
         .then((post) => { 
             posts.push(post._id)
             UserModel.findByIdAndUpdate(_id, {posts: posts}, {new: true })
