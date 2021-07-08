@@ -6,7 +6,7 @@ const snippetSchema = new Schema({
     type: String,
     required: true,
   },
-  language: {
+  programlang: {
     type: String,
   },
   owner: {
