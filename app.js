@@ -58,6 +58,11 @@ app.use('/', friendsRoute);
 const discoverRoute = require('./routes/discover.routes')
 app.use('/', discoverRoute);
 
+app.use(function(req, res, next) {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    next();
+});
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

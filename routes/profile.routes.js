@@ -7,13 +7,13 @@ const bcrypt = require('bcryptjs')
 
 router.get('/home', loggedIn, (req, res, next) => {
     const {search} = req.query
-
+    const {_id, username, imageUrl} = req.session.loggedInUser
     if (!search) {
-        const {_id} = req.session.loggedInUser
+        
         UserModel.findById(_id)
             .populate('posts')
             .then((user) => {
-                res.render('main/home', {user});
+                res.render('main/home', {user, username, imageUrl});
             })
             .catch((err) => {
                 next(err)
@@ -22,7 +22,7 @@ router.get('/home', loggedIn, (req, res, next) => {
         const {_id} = req.session.loggedInUser
         SnippetModel.find({$and: [{$text: {$search: search}}, {owner: _id}]})
             .then((posts) => {
-                res.render('main/home', {posts})
+                res.render('main/home', {posts, username, imageUrl})
             })
             .catch(() => {
                 res.render('main/home', {searcherr: "Cannot find what you're looking for"})
@@ -32,7 +32,7 @@ router.get('/home', loggedIn, (req, res, next) => {
 })
 
 router.post('/home', (req, res, next) => {
-    const {title,content} = req.body;
+    const {title,content,programlang} = req.body;
     const {_id,posts} = req.session.loggedInUser
 
     if (!title) {
@@ -43,13 +43,13 @@ router.post('/home', (req, res, next) => {
            res.render('main/home', {posts, error: 'Title is required'})
            
         })
-        .catch(() => {
+        .catch((err) => {
             next(err)
         })
         return;    
     }
 
-    SnippetModel.create({title,content,owner: _id,})
+    SnippetModel.create({title,content,programlang,owner: _id})
         .then((post) => { 
             posts.push(post._id)
             UserModel.findByIdAndUpdate(_id, {posts: posts}, {new: true })
@@ -58,7 +58,8 @@ router.post('/home', (req, res, next) => {
                     res.redirect('/home')
                 })
         })
-        .catch(() => {
+        .catch((err) => {
+            console.log(err)
             next("Post is not created")
         })
 })
