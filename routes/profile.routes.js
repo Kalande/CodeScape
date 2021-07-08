@@ -39,9 +39,8 @@ router.post('/home', (req, res, next) => {
         UserModel.findById(_id)
         .populate('posts')
         .then((user) => {
-           let posts = user.posts
-           res.render('main/home', {posts, error: 'Title is required'})
-           
+           const {posts} = user
+           res.render('main/home', {posts, error: 'Title is required'}) 
         })
         .catch((err) => {
             next(err)
