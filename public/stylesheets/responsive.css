@@ -1,0 +1,312 @@
+.resp{
+    display: none;
+}
+.nav-sidebar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 3rem;
+}
+
+.logout-icon{
+    margin-right: 2rem;
+}
+
+
+/* .dropdown ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .dropdown li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .dropdown li a:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .dropdown .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  .dropdown .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  .dropdown .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .dropdown .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .dropdown .menu-icon .navicon:before,
+  .dropdown .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .dropdown .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .dropdown .menu-icon .navicon:after {
+    top: -5px;
+  }
+
+  .dropdown .menu-btn {
+     display: none;
+    position: relative;
+    left: 12rem;
+    top: 2rem; 
+   }
+  
+  .dropdown .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .dropdown .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .dropdown .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .dropdown .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .dropdown .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .dropdown .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  } 
+
+ */
+
+
+@media (max-width: 1200px){
+    /* Profile page */
+    .main-content-profile{
+        grid-template-columns: 1fr 70rem  1fr;
+        grid-template-rows: 50rem 50rem;
+    }
+    .user-info-div{
+        width: 70rem;
+        height: 40rem;
+    }
+    .following-and-followers{
+        width: 70rem;
+        height: 40rem;
+    }
+    .profile-picture{
+        left: -10rem;
+    }
+    .update-info-form{
+        left: -7rem;
+    }
+
+
+}
+
+
+@media (max-width: 1000px){
+        /* Profile page */
+    .main-content-profile{
+        grid-template-columns: 1fr 50rem  1fr;
+        grid-template-rows: 60rem 60rem;
+    }
+    .user-info-div{
+        width: 50rem;
+        height: 50rem;
+    }
+    .following-and-followers{
+        width: 50rem;
+        height: 50rem;
+    }
+    .profile-picture{
+        left: -1rem;
+    }
+    .update-info-form{
+        left: 1rem;
+    }
+
+    .about{
+        position: relative;
+        left: -21rem;
+        top: 3rem;
+    }
+    .about button{
+        position: relative;
+        left: 23rem;
+        top: -10rem;
+    }
+
+    /* main page */
+}
+@media (max-width: 800px){
+        /* Profile page */
+    .main-content-profile{
+        grid-template-columns: 1fr 35rem  1fr;
+        grid-template-rows: 90rem 90rem;
+    }
+    .user-info-div{
+        width: 35rem;
+        height: 80rem;
+    }
+
+    .profile-picture{
+        left: 11rem;
+    }
+    .update-info-form{
+        top: 28rem;
+        left: -10rem;
+    }
+    .about p, .about textarea{
+        position: relative;
+        left: 21rem;
+        top: -2rem;
+    }
+    .about button{
+        position: relative;
+        left: 22rem;
+        top: -2rem;
+    }
+    .following-and-followers{
+        width: 35rem;
+        height: 80rem;
+    }
+}
+@media (max-width: 650px){
+    .sidebar{
+        display: none;
+    }
+    .logout{
+        display: none;
+    }
+    .resp{
+        display: block;
+    }
+    .resp a{
+        font-size: 1.5rem;
+    }
+    .user-info a{
+        font-size: 1.5rem;
+    }
+    .layout-for-sidebar{
+        grid-template-columns: 0.5rem auto ;
+    }
+    /* Profile page */
+    .main-content-profile{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 90rem 90rem;
+    }
+    .my-profile{
+        grid-column: 1/-1;
+        font-size: 2rem;
+        margin-left: 2rem;
+        justify-self: center;
+    }
+    .user-info-div{
+        grid-column: 1/-1;
+        width: 40rem;
+        height: 80rem;
+    }
+    .my-followers{
+        grid-column: 1/-1;
+        font-size: 2rem;
+        margin: 2rem ;
+    }
+    .following-and-followers{
+        grid-column: 1/-1;
+        width: 40rem;
+        height: 80rem;
+    }
+}
+
+
+@media (max-width: 450px){
+    .sidebar{
+        display: none;
+    }
+    .layout-for-sidebar{
+        grid-template-columns: 0.5rem auto ;
+    }
+    /* Profile page */
+    .main-content-profile{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 90rem 90rem;
+
+    }
+    .my-profile{
+        grid-column: 1/-1;
+        font-size: 2rem;
+        margin-left: 2rem;
+    }
+    .user-info-div{
+        grid-column: 1/-1;
+        width: 30rem;
+        height: 80rem;
+    }
+    .update-info-form{
+        top: 28rem;
+        left: -7rem;
+    }
+    .about button{
+        position: relative;
+        left: 21rem;
+    }
+    .upload-picture-label{
+        position: relative;
+        left: -3rem;
+    }
+    .upload-picture button{
+        position: relative;
+        top: -3rem;
+        left: 9rem;
+    }
+
+    .my-followers{
+        grid-column: 1/-1;
+        font-size: 2rem;
+        margin:2rem ;
+    }
+    .following-and-followers{
+        grid-column: 1/-1;
+        width: 30rem;
+        height: 80rem;
+    }
+}

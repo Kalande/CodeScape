@@ -5,6 +5,10 @@
             <img src="{{user.imageUrl}}"  alt="user-pic">
         </div>
         <a href="/myprofile" class="user-link">{{user.username}}</a>
+        <div class="my-snippets resp"><a href="/home">Snippets</a></div>
+        <div class="find-friends resp"><a href="/find-friends">Friends</a></div>
+        <div class="discover resp"><a href="/discover">Discover</a></div>
+
     </div>
     <div class="snippet-search-bar">
       <form class="search-snippet-form" method="GET" action="/home">
@@ -18,7 +22,7 @@
 
 
     <div class="logo-wrapper">
-      <p>Logout</p> 
+      <p class="logout">Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
     </div>
   </nav> 
@@ -28,7 +32,7 @@
             <div class="my-snippets selected"><a href="/home">My snippets</a></div>
             <div class="find-friends "><a href="/find-friends">Find friends</a></div>
             <div class="discover "><a href="/discover">Discover</a></div>
-            <div class="resources"><a href="/resources"> Resources</a></div>
+            {{!-- <div class="resources"><a href="/resources"> Resources</a></div> --}}
       </div>
         {{!-- Main content starts here --}}
       <div class="main-content-home">
@@ -40,9 +44,9 @@
               {{#if error}}
               <p class="error">{{error}}</p>
               {{/if}}
+              <button class="btn save-edited-snippet-btn btn-primary" type="submit">Save</button>
               <textarea type="text" name="content" class="form-control" id="editor" >{{post.content}}</textarea>
             </div>
-            <button class="btn btn-primary" type="submit">Save</button>
           </form>
         </div>
 
@@ -53,14 +57,6 @@
                 <label for="snippet">{{this.title}}</label>
                 <pre><code class="language-javascript" id="snippet">{{this.content}}</code></pre>
               </li>
-          <form action="/home/{{this._id}}/delete">
-            <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
-          </form>
-
-          <form action="/home/{{this._id}}/edit">
-            <button class="btn edit-btn btn-primary" type="submit"><i class="fas fa-edit"></i></button>
-          </form>
-
             {{/each}}
           </ol>
         </div>
