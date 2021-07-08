@@ -116,7 +116,7 @@
     /* Profile page */
     .main-content-profile{
         grid-template-columns: 1fr 70rem  1fr;
-        grid-template-rows: 50rem 50rem;
+        grid-template-rows: 50rem 50rem 50rem; 
     }
     .user-info-div{
         width: 70rem;
@@ -126,6 +126,9 @@
         width: 70rem;
         height: 40rem;
     }
+    /* ..following{
+
+    } */
     .profile-picture{
         left: -10rem;
     }
