@@ -71,7 +71,7 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
      next(new Error('No file uploaded!'));
      return;
    }
-   UserModel.findByIdAndUpdate(_id, {imageUrl: path}, {new:true})
+   UserModel.findByIdAndUpdate(_id, {imageUrl: path}, {new: true})
    .then((user) => {
        req.session.loggedInUser = user
        res.redirect('/myprofile')
