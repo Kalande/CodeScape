@@ -33,6 +33,10 @@ const userSchema = new Schema({
   },
   about: {
     type: String,
+  },
+  savedsnippets: {
+    ref: 'Snippet',
+    type: [Schema.Types.ObjectId]
   }
 });
 

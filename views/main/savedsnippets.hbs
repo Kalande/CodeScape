@@ -1,0 +1,56 @@
+<section class="home-page">
+  <nav class="discover-nav">
+    <div class="user-info">
+      <div class="user-image-wrapper">
+        <img src="{{user.imageUrl}}" alt="user-pic">
+      </div>
+      <a href="/myprofile" class="user-link">{{user.username}}</a>
+      
+    </div>
+    <div class="snippet-search-bar">
+        <h1>Saved Snippets</h1>
+    </div>
+    
+    <div class="logo-wrapper"> 
+      <p>Logout</p> 
+      <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
+    </div>
+  </nav>
+  <div class="nav-placeholder"> </div>
+  <div class="home-wrapper layout-for-sidebar">
+    <div class="sidebar">
+      <div class="sidebar-main">
+        <div class="my-snippets"><a href="/home">My snippets</a></div>
+        <div class="find-friends"><a href="/find-friends">Find friends</a></div>
+        <div class="discover "><a href="/discover">Discover</a></div>
+            <div class="saved-snippets selected"><a href="/saved"> Saved Snippets</a></div>
+      </div>
+      {{!-- <div class="made-by">Made by<a target="_blank" href="/#"> Liliia</a> and <a target="_blank" href="/#"> Kalande</a></div> --}}
+    </div>
+    {{!-- Main content starts here --}}
+    <div class="main-content-home">
+      <div class="create-snippet-form">
+        <ol>
+          {{#each user.savedsnippets}}
+
+          <form action="/saved/{{this._id}}/delete">
+            <button class="btn delete-btn btn-primary" type="submit"><i class="far fa-trash-alt"></i></button>
+          </form>       
+          <li class="line-numbers">
+            <label for="snippet">{{this.title}}</label>
+            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+          </li>
+          <p>👍 {{this.likes.length}}  👎 {{this.dislikes.length}}  Created by: {{this.owner.username}}</p>
+
+
+          <br>
+          <br>
+          <br>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+
+    <script src="/js/prism.js"></script>
+
+</section>

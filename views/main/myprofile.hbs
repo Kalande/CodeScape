@@ -20,7 +20,7 @@
             <div class="my-snippets "><a href="/home">My snippets</a></div>
             <div class="find-friends "><a href="/find-friends">Find friends</a></div>
             <div class="discover "><a href="/discover">Discover</a></div>
-            <div class="resources"><a href="/resources"> Resources</a></div>
+            <div class="saved-snippets"><a href="/saved"> Saved Snippets</a></div>
         </div>
 
     <div class="main-content-profile">
@@ -48,7 +48,7 @@
                 <input type="password" name="password" placeholder="Create new password">
                 <div class="about">
                     <p>About</p>
-                    <textarea name="about" placeholder="Tell us about yourself" value="{{user.about}}"> </textarea>{{!-- UPDATE HERE --}}
+                    <textarea name="about" placeholder="Tell us about yourself" >{{user.about}}</textarea>
                     <button type="submit">Submit</button>
                 </div>
                 {{#if error}}
@@ -60,24 +60,53 @@
         
         <h2 class="my-followers">Followers</h2>
         <div class="following-and-followers">
-            <div class="following">
-                <h3>Following</h1>
+            <div class="followers">
                 <ol>
-                {{#each user.following}}
-                    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+                {{#each user.followers}}
+                    <br>
+                    <div class="users">
+                    <img class="user-img" src="{{this.imageUrl}}" alt="profile">
+                    <a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a>
+                    </div>
+                    <br>
                 {{/each}}
                 </ol>
             </div>
 
-            <div class="folowers">
-                <h3>Followers</h1>
+        </div>        
+        <h2 class="my-following">Following</h2>
+        <div class="following">
+            <div>
                 <ol>
-                {{#each user.followers}}
-                    <li><a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a></li>
+                {{#each user.following}}
+                    <br>
+                    <div class="users">
+                    <img class="user-img" src="{{this.imageUrl}}" alt="profile">
+                    <a href="/profile/{{this._id}}"><h2>{{this.username}}</h2></a>
+                    </div>
+                    <br>
                 {{/each}}
                 </ol>
             </div>
         </div>
     </div>
+
+    <style>
+        .user-img{
+            width:5%;
+            border-radius: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .users{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: #47555e;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
 
 </section>

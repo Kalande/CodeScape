@@ -194,4 +194,36 @@ router.post('/myprofile', (req, res, next) => {
     }) 
 })
 
+router.get('/saved', loggedIn, (req, res,next) => {
+    const {_id} = req.session.loggedInUser
+    UserModel.findById(_id)
+    .populate({path: 'savedsnippets', populate: {path: 'owner'}})
+    .then((user) => {
+        res.render('main/savedsnippets', {user})
+    })
+    .catch((err) => {
+        next(err)
+    })
+    
+})
+
+router.get('/saved/:id/delete', (req,res,next) => {
+    const {_id} = req.session.loggedInUser
+    const {id} = req.params
+    UserModel.findById(_id)
+    .then((user) => {
+        const {savedsnippets} = user
+        let save = savedsnippets.indexOf(id) 
+        savedsnippets.splice(save, 1)
+        return UserModel.findByIdAndUpdate(_id, {savedsnippets: savedsnippets}, {new: true})
+    })
+    .then((user) => {
+        req.session.loggedInUser = user
+        res.redirect('/saved')
+    })
+    .catch((err) => {
+        next(err)
+    }) 
+})
+
 module.exports = router;

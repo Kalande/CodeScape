@@ -187,6 +187,11 @@ Orange: rgb( 203, 103, 21)
     grid-row: 2/3; 
     margin-top: 2rem;
 }
+.my-following{
+    grid-column: 2/3;
+    grid-row: 3/3; 
+    margin-top: 2rem;
+}
 .following-and-followers{
     grid-column: 2/3;
     grid-row: 2/3;
@@ -201,8 +206,22 @@ Orange: rgb( 203, 103, 21)
     overflow-wrap: break-word;
     justify-self: center;
     margin-top: 6rem;
+    overflow-y: scroll;
 }
-/* .following{
-
-} */
+.following{
+    grid-column: 2/3;
+    grid-row: 3/3;
+    width: 90rem;
+    height: 30rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.9rem rgba(0, 0, 0, 0.1);
+    text-overflow: clip;
+    white-space: normal;
+    overflow:hidden;
+    overflow-wrap: break-word;
+    justify-self: center;
+    margin-top: 6rem;
+    overflow-y: scroll;
+}
 /* End of Profile page */

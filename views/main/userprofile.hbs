@@ -25,7 +25,6 @@
     <div class="my-snippets "><a href="/home">My snippets</a></div>
     <div class="find-friends "><a href="/find-friends">Find friends</a></div>
     <div class="discover "><a href="/discover">Discover</a></div>
-    <div class="resources"><a href="/resources"> Resources</a></div>
   </div>
   {{!-- Main content starts here --}}
   <div class="main-content-home">
@@ -51,7 +50,8 @@
     <div class="create-snippet-form">
       <h1>About Me</h1>
       <hr>
-      <p>{{user.about}}</p>
+      <br>
+      <p class="description">{{user.about}}</p>
     </div>
     <div class="snippets-wrapper">
       {{#if searcherr}}
@@ -63,13 +63,17 @@
       {{#if following}}
       <ol>
         {{#each user.posts}}
+        <form method="POST" action="/profile/{{this._id}}/save">
+            <button class="btn delete-btn btn-primary" type="submit"><i class="fas fa-cloud-download-alt"></i></button>
+          </form>
+          <br>
         <li class="line-numbers">
           <label class="snippet-title" for="snippet">{{this.title}}</label>
           <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
         </li>
         <div class="profiles">
           <form method="POST" action="/profile/{{this._id}}/like">
-            <button class="react-btn" type="submit">👍 {{this.likes.length}}</button>
+              <button class="react-btn" type="submit">👍 {{this.likes.length}}</button>   
           </form>
           <form method="POST" action="/profile/{{this._id}}/dislike">
             <button class="react-btn" type="submit">👎 {{this.dislikes.length}}</button>
@@ -141,14 +145,17 @@
 
   .react-btn {
     background: none;
-    width: 40px;
-    height: 30px;
+    font-size: larger;
     margin-left: 10px;
     border-radius: 5px;
-
+    outline: none;
+    border: none;
   }
   .react-btn:hover{
     cursor: pointer;
+  }
+  .description{
+    font-size: larger;
   }
 </style>
 
