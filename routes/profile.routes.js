@@ -33,8 +33,7 @@ router.get('/home', loggedIn, (req, res, next) => {
 
 router.post('/home', (req, res, next) => {
     const {title,content,programlang} = req.body;
-    console.log(req.body)
-    const {_id, posts} = req.session.loggedInUser
+    const {_id,posts} = req.session.loggedInUser
 
     if (!title) {
         UserModel.findById(_id)
