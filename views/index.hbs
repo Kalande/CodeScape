@@ -1,4 +1,7 @@
 <div class="parent">
+    <video autoplay muted loop id="myVideo">
+        <source src="/images/Coding video.mp4" type="video/mp4">
+    </video>
     <div class="banner">
         <img src="/images/logo_transparent.png" alt="CodeScape banner" height="350px">
         <div class="text">
@@ -44,11 +47,12 @@
         justify-content: center;
         align-items: flex-start;
         background: #47555e;
-        width: 90%;
+        width: 70%;
         height: 40%;
         border-radius: 20px;
         margin-top: 50px;
         padding: 10px;
+        position: absolute;
     }
 
     .buttons {
@@ -58,7 +62,7 @@
         align-items: center;
         align-content: space-around;
         position: absolute;
-        top: 500px;
+        top: 65%;
         margin-top: 20px;
     }
 
@@ -98,5 +102,9 @@
     position: absolute;
     top: 98%;
     color: #eeee;
+    }
+
+    video {
+        position: fixed;
     }
 </style>
