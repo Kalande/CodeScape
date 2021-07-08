@@ -8,7 +8,7 @@ Orange: rgb( 203, 103, 21)
 * {
   margin: 0;
   padding: 0;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Questrial', sans-serif;
   outline: none;
   /* to remove all the outlines of buttons */
 }

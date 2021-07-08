@@ -50,11 +50,11 @@
           </form>
         </div>
 
-        <div class="snippets-wrapper">
+        <div class="snippets-wrapper snippets-wrapper-edit">
           <ol>
             {{#each user.posts}}
               <li class="line-numbers">
-                <label for="snippet">{{this.title}}</label>
+                <label class="snippet-title" for="snippet">{{this.title}}</label>
                 <pre><code class="language-javascript" id="snippet">{{this.content}}</code></pre>
               </li>
             {{/each}}

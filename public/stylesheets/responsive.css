@@ -211,6 +211,10 @@
         grid-row: 1/-1;
         justify-self: center;
     }
+    .snippets-wrapper ol{
+        position: relative;
+        left: -7rem;
+    }
     body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
         width: 40rem;
 
@@ -224,10 +228,11 @@
         left: 46rem;
     }
     .edit-btn{
-        position: relative;
-        left: 42rem;
+        display: none;
     }
-
+    .snippets-wrapper-edit{
+        margin-top: 1rem;
+    }
 }
 @media (max-width: 800px){
         /* Profile page */
@@ -241,7 +246,7 @@
     }
 
     .profile-picture{
-        left: 11rem;
+        left: 10rem;
     }
     .update-info-form{
         top: 28rem;
@@ -264,6 +269,43 @@
     .following{
         width: 35rem;
         height: 50rem;
+    }
+    /* Main page */
+    .snippet-search-bar{
+        margin-left: 5rem;
+      }
+      .snippet-search-bar input{
+        width: 20rem;
+      }
+    .logout-main{
+        display: none;
+    }
+    .main-content-home{
+        grid-template-columns: 1rem 55rem 1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 35rem;
+    }
+    .snippets-wrapper ol{
+        position: relative;
+        /* left: -7rem; */
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 30rem;
+
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 30rem;
+    }
+
+    .delete-btn{
+        position: relative;
+        left: 36rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 32rem;
     }
 }
 @media (max-width: 650px){
@@ -299,6 +341,12 @@
         margin-left: 2rem;
         justify-self: center;
     }
+    .upload-picture{
+        left: -1rem;
+    }
+    .profile-image-wrapper{
+        left: -1rem;
+    }
     .user-info-div{
         grid-column: 1/-1;
         width: 40rem;
@@ -326,8 +374,41 @@
         width: 40rem;
         height: 50rem;
     }
-}
+    /* main page */
+    .snippet-search-bar{
+        display: none;
+    }
+    .main-content-home{
+        grid-template-columns: 0.1rem 45rem 0.1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 25rem;
+        left: 3rem;
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 20rem;
 
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 20rem;
+    }
+
+    .delete-btn{
+        position: relative;
+        left: 26rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 22rem;
+    }
+    /* discover page */
+    .discover-boxes{
+        grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
+        gap: 1rem;
+        margin: 3rem 8.5rem ;
+      }
+}
 
 @media (max-width: 450px){
     .sidebar{
@@ -372,7 +453,6 @@
         top: -3rem;
         left: 9rem;
     }
-
     .my-followers{
         grid-column: 1/-1;
         font-size: 2rem;
@@ -387,5 +467,38 @@
         grid-column: 1/-1;
         width: 30rem;
         height: 50rem;
+    }
+    /* main page */
+    .main-content-home{
+        grid-template-columns: 0.1rem 35rem 0.1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 17rem;
+        left: 3rem;
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 14rem;
+
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 14rem;
+    }
+    .delete-btn{
+        position: relative;
+        left: 22rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 18rem;
+    }
+    .find-friends{
+        display: none;
+    }
+    /* discover page */
+    .discover-boxes{
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 1rem;
+        margin: 2rem auto;
     }
 }
