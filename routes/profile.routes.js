@@ -39,9 +39,8 @@ router.post('/home', (req, res, next) => {
         UserModel.findById(_id)
         .populate('posts')
         .then((user) => {
-           let posts = user.posts
-           res.render('main/home', {posts, error: 'Title is required'})
-           
+           const {posts} = user
+           res.render('main/home', {posts, error: 'Title is required'}) 
         })
         .catch((err) => {
             next(err)
@@ -191,6 +190,38 @@ router.post('/myprofile', (req, res, next) => {
     })
     .catch(() => {
         res.render('main/myprofile' , {error: 'Username already taken'})
+    }) 
+})
+
+router.get('/saved', loggedIn, (req, res,next) => {
+    const {_id} = req.session.loggedInUser
+    UserModel.findById(_id)
+    .populate({path: 'savedsnippets', populate: {path: 'owner'}})
+    .then((user) => {
+        res.render('main/savedsnippets', {user})
+    })
+    .catch((err) => {
+        next(err)
+    })
+    
+})
+
+router.get('/saved/:id/delete', (req,res,next) => {
+    const {_id} = req.session.loggedInUser
+    const {id} = req.params
+    UserModel.findById(_id)
+    .then((user) => {
+        const {savedsnippets} = user
+        let save = savedsnippets.indexOf(id) 
+        savedsnippets.splice(save, 1)
+        return UserModel.findByIdAndUpdate(_id, {savedsnippets: savedsnippets}, {new: true})
+    })
+    .then((user) => {
+        req.session.loggedInUser = user
+        res.redirect('/saved')
+    })
+    .catch((err) => {
+        next(err)
     }) 
 })
 

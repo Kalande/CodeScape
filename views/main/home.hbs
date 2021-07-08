@@ -5,6 +5,10 @@
         <img src="{{imageUrl}}" alt="user-pic">
       </div>
       <a href="/myprofile" class="user-link">{{username}}</a>
+      <div class="my-snippets selected resp"><a href="/home">Snippets</a></div>
+      <div class="find-friends resp"><a href="/find-friends">Friends</a></div>
+      <div class="discover resp"><a href="/discover">Discover</a></div>
+
       
     </div>
     <div class="snippet-search-bar">
@@ -18,7 +22,7 @@
     </div>
     
     <div class="logo-wrapper"> 
-      <p>Logout</p> 
+      <p class="logout">Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
     </div>
   </nav>
@@ -29,7 +33,7 @@
         <div class="my-snippets selected"><a href="/home">My snippets</a></div>
         <div class="find-friends"><a href="/find-friends">Find friends</a></div>
         <div class="discover "><a href="/discover">Discover</a></div>
-        <div class="resources"><a href="/resources"> Resources</a></div>
+        <div class="saved-snippets"><a href="/saved"> Saved Snippets</a></div>
       </div>
       {{!-- <div class="made-by">Made by<a target="_blank" href="/#"> Liliia</a> and <a target="_blank" href="/#"> Kalande</a></div> --}}
     </div>
@@ -89,7 +93,7 @@
           <li class="line-numbers">
             <label class="snippet-title" for="snippet">{{this.title}} </label>
             <br>
-            <label class="snippet-language" for="snippet">{{this.language}}</label>
+            <label class="snippet-language" for="snippet">{{this.programlang}}</label>
             <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
           </li>
           <p>👍 {{this.likes.length}}  👎 {{this.dislikes.length}}</p>

@@ -5,6 +5,10 @@
             <img src="{{imageUrl}}"  alt="user-pic">
         </div>
         <a href="/myprofile" class="user-link">{{username}}</a>
+        <div class="my-snippets resp"><a href="/home">Snippets</a></div>
+        <div class="find-friends selected resp"><a href="/find-friends">Friends</a></div>
+        <div class="discover resp"><a href="/discover">Discover</a></div>
+
     </div>
     <div class="snippet-search-bar">
         <form class="search-snippet-form" method="GET" action="/find-friends">
@@ -16,7 +20,7 @@
          </form>
     </div>
     <div class="logo-wrapper">
-      <p>Logout</p> 
+      <p class="logout">Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
     </div>
   </nav> 
@@ -26,7 +30,6 @@
             <div class="my-snippets "><a href="/home">My snippets</a></div>
             <div class="find-friends selected"><a href="/find-friends">Find friends</a></div>
             <div class="discover "><a href="/discover">Discover</a></div>
-            <div class="resources"><a href="/resources"> Resources</a></div>
       </div>
         {{!-- Main content starts here --}}
       <div class="main-content-home">

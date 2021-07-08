@@ -55,7 +55,6 @@ router.post('/profile/:id', (req, res, next) => {
     UserModel.findById(id)
     .then((user) => {
         const {followers} = user
-        console.log(followers)
         return UserModel.findByIdAndUpdate(id, {followers: [...followers,_id]}, {new: true})
     })
     .then(() => {
@@ -131,18 +130,39 @@ router.post('/profile/:postId/dislike', (req, res, next) => {
     .then((post) => {
         const {dislikes} = post
         if(!dislikes.includes(_id)){
+            req.app.locals.dislike = true;
             dislikes.push(_id)
             return SnippetModel.findByIdAndUpdate(postId, {dislikes: dislikes})   
            }
            else{
-               let i = dislikes.indexOf(_id)
-               let splice = dislikes.splice(i,0)
+            req.app.locals.dislike = false;
+            let i = dislikes.indexOf(_id)
+            let splice = dislikes.splice(i,0)
             return SnippetModel.findByIdAndUpdate(postId, {dislikes: splice})
            } 
     })
     .then((post) => {
        const {owner} = post
        res.redirect(`/profile/${owner}`)
+    })
+    .catch((err) => {
+        next(err)
+    })  
+})
+
+router.post('/profile/:postId/save', (req, res, next) => {
+    const {postId} = req.params
+    const {_id, savedsnippets} = req.session.loggedInUser
+    savedsnippets.push(postId)
+   UserModel.findByIdAndUpdate(_id, {savedsnippets: savedsnippets}, {new: true})
+    .then((user) => {
+        console.log(user.savedsnippets)
+        req.session.loggedInUser = user
+        return SnippetModel.findById(postId)
+    })        
+    .then((post) => {
+    const {owner} = post
+    res.redirect(`/profile/${owner}`)
     })
     .catch((err) => {
         next(err)
