@@ -319,7 +319,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 110rem  1fr;
   grid-template-rows: 30rem auto;
-
 }
 .create-snippet-form{
   margin-top: 2rem;
