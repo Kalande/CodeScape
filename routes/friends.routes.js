@@ -3,12 +3,14 @@ const UserModel = require('../models/User.model');
 const loggedIn = require('../middlewares/authcheck');
 const SnippetModel = require('../models/Snippet.model');
 
+
 router.get('/find-friends', loggedIn, (req, res, next) => {
     const {user} = req.query
-    const {username, imageUrl} = req.session.loggedInUser
+    const {username} = req.session.loggedInUser
     if(user){
         UserModel.find({$text: {$search: user}})
         .then((users) => {
+            const {username, imageUrl} = req.session.loggedInUser
             
             res.render('main/find-friends', {users, username, imageUrl})
         })
@@ -17,9 +19,10 @@ router.get('/find-friends', loggedIn, (req, res, next) => {
         })
         return;
     }
-
+    
     UserModel.find({$nor: [{username: username}]}).limit(100)
-    .then((users) => {
+    .then((users) => { 
+        const {username, imageUrl} = req.session.loggedInUser
         res.render('main/find-friends', {users, username, imageUrl})
     })
     .catch((err) => {
