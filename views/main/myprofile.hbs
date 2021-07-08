@@ -7,9 +7,25 @@
                 <img src="{{user.imageUrl}}"  alt="user-pic">
             </div>
             <a href="/myprofile" class="user-link selected">{{user.username}}</a>
+            <div class="my-snippets resp"><a href="/home">Snippets</a></div>
+            <div class="find-friends resp"><a href="/find-friends">Friends</a></div>
+            <div class="discover resp"><a href="/discover">Discover</a></div>
+
+
+            {{!-- <div class="dropdown">
+                <input class="menu-btn" type="checkbox">
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <li> <a href="/home">My snippets</a></li>
+                    <li> <a href="/find-friends">Find friends</a></li>
+                    <li> <a href="/discover">Discover</a></li>
+                </ul>
+            </div>
+ --}}
+
         </div>
         <div class="logo-wrapper">
-      <p>Logout</p> 
+      <p class="logout">Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
         </div>
     </nav> 
@@ -21,6 +37,9 @@
             <div class="find-friends "><a href="/find-friends">Find friends</a></div>
             <div class="discover "><a href="/discover">Discover</a></div>
             <div class="saved-snippets"><a href="/saved"> Saved Snippets</a></div>
+        </div>
+        <div class="small-screen-sidebar">
+
         </div>
 
     <div class="main-content-profile">

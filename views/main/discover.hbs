@@ -6,10 +6,16 @@
                 <img src="{{user.imageUrl}}"  alt="user-pic">
             </div>
             <a href="/myprofile" class="user-link">{{user.username}}</a>
+            <div class="nav-sidebar">
+                <div class="my-snippets resp"><a href="/home">Snippets</a></div>
+                <div class="find-friends resp"><a href="/find-friends">Friends</a></div>
+                <div class="discover selected resp"><a href="/discover">Discover</a></div>
+            </div>
+
         </div>
         <div class="logo-wrapper">
-      <p>Logout</p> 
-      <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
+      <p class="logout">Logout</p> 
+      <a class="logout-icon" href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
         </div>
     </nav> 
     <div class="nav-placeholder"> </div>

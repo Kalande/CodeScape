@@ -55,11 +55,12 @@ body {
 .sidebar{
   grid-column: 1/2;
   grid-row: auto;
-  height: 100vh;
+  /* height: 100vh; */
   align-self: stretch;
   background-color: white;
   box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.3);
 }
+
 .sidebar a{
   text-decoration: none;
   color: #000;
@@ -401,4 +402,5 @@ font-size: 1.9rem;
   top: 2rem;
   cursor: pointer;
 }
+
 /*End of main page */ 
