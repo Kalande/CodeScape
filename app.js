@@ -54,6 +54,7 @@ app.use('/', profileRoute);
 
 const friendsRoute = require('./routes/friends.routes')
 app.use('/', friendsRoute);
+
 const discoverRoute = require('./routes/discover.routes')
 app.use('/', discoverRoute);
 

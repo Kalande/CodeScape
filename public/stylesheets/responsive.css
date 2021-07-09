@@ -111,18 +111,29 @@
 
  */
 
+@media (max-width: 1300px) {
+    .main-content-home{
+        display: grid;
+        grid-template-columns: 1fr 80rem 1fr;
+        grid-template-rows: 30rem auto;
+      }
+}
 
 @media (max-width: 1200px){
     /* Profile page */
     .main-content-profile{
         grid-template-columns: 1fr 70rem  1fr;
-        grid-template-rows: 50rem 50rem;
+        grid-template-rows: 50rem 50rem 50rem; 
     }
     .user-info-div{
         width: 70rem;
         height: 40rem;
     }
     .following-and-followers{
+        width: 70rem;
+        height: 40rem;
+    }
+    .following{
         width: 70rem;
         height: 40rem;
     }
@@ -132,8 +143,22 @@
     .update-info-form{
         left: -7rem;
     }
-
-
+    /* main page */
+    .main-content-home{
+        display: grid;
+        grid-template-columns: 1fr 70rem 1fr;
+        grid-template-rows: 30rem auto;
+    }
+    .create-snippet-form{
+        width: 65rem;
+    }
+    .create-snippet-form button{
+        width: 7rem;
+        margin-left: 2rem;
+    }
+    .snippets-wrapper{
+        width: 65rem;
+      }
 }
 
 
@@ -141,13 +166,17 @@
         /* Profile page */
     .main-content-profile{
         grid-template-columns: 1fr 50rem  1fr;
-        grid-template-rows: 60rem 60rem;
+        grid-template-rows: 60rem 60rem 60rem;
     }
     .user-info-div{
         width: 50rem;
         height: 50rem;
     }
     .following-and-followers{
+        width: 50rem;
+        height: 50rem;
+    }
+    .following{
         width: 50rem;
         height: 50rem;
     }
@@ -168,14 +197,48 @@
         left: 23rem;
         top: -10rem;
     }
-
     /* main page */
+    .main-content-home{
+        grid-template-columns: 1rem 60rem 1rem;
+        grid-template-rows: auto;
+    }
+    .create-snippet-form{
+        display: none;
+    }
+    .snippets-wrapper{
+        width: 40rem;
+        grid-column: 2/3;
+        grid-row: 1/-1;
+        justify-self: center;
+    }
+    .snippets-wrapper ol{
+        position: relative;
+        left: -7rem;
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 40rem;
+
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 40rem;
+    }
+
+    .delete-btn{
+        position: relative;
+        left: 46rem;
+    }
+    .edit-btn{
+        display: none;
+    }
+    .snippets-wrapper-edit{
+        margin-top: 1rem;
+    }
 }
 @media (max-width: 800px){
         /* Profile page */
     .main-content-profile{
         grid-template-columns: 1fr 35rem  1fr;
-        grid-template-rows: 90rem 90rem;
+        grid-template-rows: 90rem 60rem 60rem;
     }
     .user-info-div{
         width: 35rem;
@@ -183,7 +246,7 @@
     }
 
     .profile-picture{
-        left: 11rem;
+        left: 10rem;
     }
     .update-info-form{
         top: 28rem;
@@ -201,7 +264,48 @@
     }
     .following-and-followers{
         width: 35rem;
-        height: 80rem;
+        height: 50rem;
+    }
+    .following{
+        width: 35rem;
+        height: 50rem;
+    }
+    /* Main page */
+    .snippet-search-bar{
+        margin-left: 5rem;
+      }
+      .snippet-search-bar input{
+        width: 20rem;
+      }
+    .logout-main{
+        display: none;
+    }
+    .main-content-home{
+        grid-template-columns: 1rem 55rem 1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 35rem;
+    }
+    .snippets-wrapper ol{
+        position: relative;
+        /* left: -7rem; */
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 30rem;
+
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 30rem;
+    }
+
+    .delete-btn{
+        position: relative;
+        left: 36rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 32rem;
     }
 }
 @media (max-width: 650px){
@@ -229,13 +333,19 @@
         grid-row: 1/-1;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 90rem 90rem;
+        grid-template-rows: 90rem 60rem 60rem;
     }
     .my-profile{
         grid-column: 1/-1;
         font-size: 2rem;
         margin-left: 2rem;
         justify-self: center;
+    }
+    .upload-picture{
+        left: -1rem;
+    }
+    .profile-image-wrapper{
+        left: -1rem;
     }
     .user-info-div{
         grid-column: 1/-1;
@@ -246,14 +356,59 @@
         grid-column: 1/-1;
         font-size: 2rem;
         margin: 2rem ;
+        justify-self: center;
+    }
+    .my-following{
+        grid-column: 1/-1;
+        font-size: 2rem;
+        margin: 2rem ;
+        justify-self: center;
     }
     .following-and-followers{
         grid-column: 1/-1;
         width: 40rem;
-        height: 80rem;
+        height: 50rem;
     }
-}
+    .following{
+        grid-column: 1/-1;
+        width: 40rem;
+        height: 50rem;
+    }
+    /* main page */
+    .snippet-search-bar{
+        display: none;
+    }
+    .main-content-home{
+        grid-template-columns: 0.1rem 45rem 0.1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 25rem;
+        left: 3rem;
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 20rem;
 
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 20rem;
+    }
+
+    .delete-btn{
+        position: relative;
+        left: 26rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 22rem;
+    }
+    /* discover page */
+    .discover-boxes{
+        grid-template-columns: repeat(auto-fill, minmax(31rem, 1fr));
+        gap: 1rem;
+        margin: 3rem 8.5rem ;
+      }
+}
 
 @media (max-width: 450px){
     .sidebar{
@@ -268,7 +423,7 @@
         grid-row: 1/-1;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 90rem 90rem;
+        grid-template-rows: 90rem 60rem 60rem;
 
     }
     .my-profile{
@@ -298,7 +453,6 @@
         top: -3rem;
         left: 9rem;
     }
-
     .my-followers{
         grid-column: 1/-1;
         font-size: 2rem;
@@ -307,6 +461,44 @@
     .following-and-followers{
         grid-column: 1/-1;
         width: 30rem;
-        height: 80rem;
+        height: 50rem;
+    }
+    .following{
+        grid-column: 1/-1;
+        width: 30rem;
+        height: 50rem;
+    }
+    /* main page */
+    .main-content-home{
+        grid-template-columns: 0.1rem 35rem 0.1rem;
+        grid-template-rows: auto;
+    }
+    .snippets-wrapper{
+        width: 17rem;
+        left: 3rem;
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div > pre{
+        width: 14rem;
+
+    }
+    body > section > div.home-wrapper.layout-for-sidebar > div.main-content-home > div.snippets-wrapper div {
+        width: 14rem;
+    }
+    .delete-btn{
+        position: relative;
+        left: 22rem;
+    }
+    .edit-btn{
+        position: relative;
+        left: 18rem;
+    }
+    .find-friends{
+        display: none;
+    }
+    /* discover page */
+    .discover-boxes{
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        gap: 1rem;
+        margin: 2rem auto;
     }
 }

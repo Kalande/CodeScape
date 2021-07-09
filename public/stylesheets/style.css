@@ -8,7 +8,7 @@ Orange: rgb( 203, 103, 21)
 * {
   margin: 0;
   padding: 0;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Questrial', sans-serif;
   outline: none;
   /* to remove all the outlines of buttons */
 }
@@ -67,7 +67,7 @@ body {
 }
 .sidebar div{
   font-size: 2rem;
-  margin: 4rem 0rem 4rem 2rem;
+  margin: 4rem 0rem 4rem 1rem;
 }
 .selected{
   font-weight: 900;
@@ -319,7 +319,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 110rem  1fr;
   grid-template-rows: 30rem auto;
-
 }
 .create-snippet-form{
   margin-top: 2rem;

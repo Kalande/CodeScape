@@ -7,6 +7,7 @@
   color: black;
   direction: ltr;
   border-radius: 8px;
+  width: 500px;
 }
 
 /* PADDING */
@@ -349,3 +350,9 @@ div.CodeMirror-dragcursors {
 
 /* Help users use markselection to safely style text background */
 span.CodeMirror-selectedtext { background: none; }
+
+@media (max-width: 1000px){
+  .CodeMirror{
+    width: 50rem;
+  }
+}

@@ -22,7 +22,7 @@
     </div>
     
     <div class="logo-wrapper"> 
-      <p class="logout">Logout</p> 
+      <p class="logout logout-main">Logout</p> 
       <a href="/logout"><img src="/images/exit_PNG48.png" width="30px" height="30px"  alt="Logout"></a>
     </div>
   </nav>
@@ -94,7 +94,7 @@
             <label class="snippet-title" for="snippet">{{this.title}} </label>
             <br>
             <label class="snippet-language" for="snippet">{{this.programlang}}</label>
-            <pre> <code class="language-javascript" id="snippet">{{this.content}}</code> </pre>
+            <pre> <code class="language-javascript snippet" id="snippet">{{this.content}}</code> </pre>
           </li>
           <p>👍 {{this.likes.length}}  👎 {{this.dislikes.length}}</p>
 
